@@ -1,0 +1,133 @@
+/* ==========================================================================
+   ALUVA - HEADER Y NAVEGACIÓN
+   ========================================================================== */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--color-bg-dark);
+  color: var(--color-white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4rem;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-container img {
+  height: 50px;
+  width: auto;
+  max-width: 150px;
+  object-fit: contain;
+  display: block;
+  /* CORRECCIÓN DE LOGO JPEG CON FONDO BLANCO:
+     Invertimos los colores para volver el fondo negro y el contenido del logo blanco.
+     Luego, usamos mix-blend-mode: screen para fusionarlo con el fondo oscuro (#1A1A1A),
+     haciendo que el fondo negro del logo invertido sea invisible/transparente. */
+  mix-blend-mode: screen;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+}
+
+nav ul {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+nav a {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  transition: var(--transition-default);
+  position: relative;
+  padding: 0.5rem 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+nav a:hover, nav a.active {
+  color: var(--color-white);
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-white);
+  transition: var(--transition-default);
+}
+
+nav a:hover::after, nav a.active::after {
+  width: 100%;
+}
+
+.cart-icon-container {
+  position: relative;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  transition: var(--transition-default);
+}
+
+.cart-icon-container:hover {
+  opacity: 0.8;
+}
+
+.cart-icon-container svg {
+  width: 24px;
+  height: 24px;
+}
+
+.cart-counter {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background-color: var(--color-white);
+  color: var(--color-bg-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+}
+
+/* Responsivo */
+@media (max-width: 1024px) {
+  header {
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none; /* Simplificación para móvil */
+  }
+}
+
