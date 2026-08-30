@@ -1003,3 +1003,4 @@ dialog.cart-sidebar[open]::backdrop {
     display: none; /* Podríamos agregar un menú mobile, pero por simplicidad de un sitio web corporativo de producción de alto nivel, mantendremos enlaces limpios o header adaptativo */
   }
 }
+

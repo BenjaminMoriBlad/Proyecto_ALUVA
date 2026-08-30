@@ -3,11 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ALUVA - Ropa de Trabajo Premium y Vestuario Corporativo</title>
+  <meta name="description" content="ALUVA - Ropa de trabajo premium, vestuario corporativo personalizado y elementos de protección personal de alta calidad.">
+  <title>ALUVA - Indumentaria Técnica y Vestuario Corporativo Premium</title>
   
-  <!-- Estilos del Sitio -->
+  <!-- Optimización de Carga (Preload para Core Web Vitals) -->
+  <link rel="preload" href="css/variables.css" as="style">
+  <link rel="preload" href="css/main.css" as="style">
+  
+  <!-- Estructura de Hojas de Estilo Modulares -->
   <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components/header.css">
   <link rel="stylesheet" href="css/components/parallax.css">
+  <link rel="stylesheet" href="css/components/cart.css">
+  <link rel="stylesheet" href="css/components/footer.css">
+
+  <!-- Carga de JS Diferido para optimizar el performance (Evita bloqueo de HTML parser) -->
+  <script src="js/main.js" defer></script>
+  <script src="js/cart.js" defer></script>
 </head>
 <body>
 
@@ -16,21 +29,20 @@
        ========================================== -->
   <header>
     <div class="logo-container">
-      <img src="images/LOGO_ALUVA.jpeg" alt="Logo ALUVA">
+      <img src="images/LOGO_ALUVA.jpeg" alt="Logo ALUVA" width="150" height="50">
       <span class="logo-text">ALUVA</span>
     </div>
     
     <nav aria-label="Menú principal de navegación">
       <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#nosotros">Quiénes Somos</a></li>
-        <li><a href="#catalogo">Catálogo</a></li>
-        <li><a href="#testimonios">Testimonios</a></li>
-        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="index.html" class="active">Inicio</a></li>
+        <li><a href="index.html#nosotros">Quiénes Somos</a></li>
+        <li><a href="catalogo.html">Catálogo</a></li>
+        <li><a href="seguimiento.html">Seguimiento</a></li>
+        <li><a href="index.html#contacto">Contacto</a></li>
       </ul>
     </nav>
     
-    <!-- Botón de Carrito con Contador -->
     <button id="cart-toggle-btn" class="cart-icon-container" aria-label="Ver carrito de compras">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="9" cy="21" r="1"></circle>
@@ -42,14 +54,14 @@
   </header>
 
   <!-- ==========================================
-       HERO BANNER (CON EFECTO PARALLAX)
+       HERO BANNER (PARALLAX)
        ========================================== -->
   <section id="inicio" class="hero-section" aria-label="Presentación de ALUVA">
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1>ALUVA: Ropa y Elementos de Protección Personal</h1>
-      <p>Indumentaria técnica y corporativa de alta resistencia, diseñada para enfrentar el trabajo pesado y la vida diaria.</p>
-      <a href="#catalogo" class="btn-primary">Ver Catálogo</a>
+      <p>Diseño y confección industrial con tecnología textil avanzada para la faena extrema y el uso diario.</p>
+      <a href="catalogo.html" class="btn">Ver Catálogo</a>
     </div>
   </section>
 
@@ -57,9 +69,9 @@
     <!-- ==========================================
          SECCIÓN QUIÉNES SOMOS
          ========================================== -->
-    <section id="nosotros" aria-labelledby="about-title">
+    <section id="nosotros" class="container" aria-labelledby="about-title">
       <h2 id="about-title" class="section-title">Quiénes Somos</h2>
-      <div class="about-container">
+      <div class="grid-2">
         <div class="about-intro">
           <p>
             En <strong>ALUVA</strong>, nos especializamos en el diseño, confección y distribución de ropa de trabajo, vestuario corporativo y Equipos de Protección Personal (EPP). 
@@ -69,15 +81,15 @@
           </p>
         </div>
         <div class="about-philosophy">
-          <article class="philosophy-card">
-            <h3>Misión</h3>
-            <p>
+          <article class="philosophy-card" style="padding: 2rem; background-color: var(--color-white); border: 1px solid var(--color-light-gray); margin-bottom: 2rem;">
+            <h3 style="font-size: 1.25rem; text-transform: uppercase; margin-bottom: 0.75rem; letter-spacing: var(--letter-spacing-wide);">Misión</h3>
+            <p style="font-size: 0.95rem; margin-bottom: 0;">
               Proveer vestuario técnico, EPP y prendas corporativas de alta durabilidad y funcionalidad, diseñadas para resistir las condiciones más exigentes del trabajo faenero y la vida diaria, integrando personalización de marca y tecnología textil en cada producto.
             </p>
           </article>
-          <article class="philosophy-card">
-            <h3>Visión</h3>
-            <p>
+          <article class="philosophy-card" style="padding: 2rem; background-color: var(--color-white); border: 1px solid var(--color-light-gray);">
+            <h3 style="font-size: 1.25rem; text-transform: uppercase; margin-bottom: 0.75rem; letter-spacing: var(--letter-spacing-wide);">Visión</h3>
+            <p style="font-size: 0.95rem; margin-bottom: 0;">
               Ser el referente y aliado estratégico clave en la confección y suministro de ropa industrial, EPP y vestuario personalizado, destacados por la innovación constante en materiales, el diseño a medida y el compromiso absoluto con la seguridad y bienestar de nuestros usuarios.
             </p>
           </article>
@@ -86,153 +98,78 @@
     </section>
 
     <!-- ==========================================
-         SECCIÓN CATÁLOGO DE PRODUCTOS
+         SECCIÓN TESTIMONIOS (OPTIMIZADO PARA RENDIMIENTO)
          ========================================== -->
-    <section id="catalogo" aria-labelledby="catalog-title">
-      <h2 id="catalog-title" class="section-title">Catálogo Técnico</h2>
-      <div class="catalog-grid">
-        
-        <!-- Producto 1 -->
-        <article class="product-card" data-id="p1" data-title="Blusa Jubae Hombre" data-price="25990" data-image="images/BLUSA_JUBAE_HOMBRE.jpeg">
-          <div class="product-img-wrapper">
-            <img src="images/BLUSA_JUBAE_HOMBRE.jpeg" alt="Blusa Jubae Hombre">
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">Camisa Ripstop Jubae</h3>
-            <p class="product-tech-desc">Camisa técnica de manga larga, cómoda, altamente transpirable y diseñada para resistir el roce intenso.</p>
-            <span class="product-fabric">Tela: Ripstop de Alta Durabilidad</span>
-            <div class="product-price">$25.990</div>
-            <button class="btn-add-cart">Añadir al Carrito</button>
-          </div>
-        </article>
-
-        <!-- Producto 2 -->
-        <article class="product-card" data-id="p2" data-title="Chaqueta Softshell Técnica" data-price="39990" data-image="images/CHAQUETA_SOFSHEL_1.jpeg">
-          <div class="product-img-wrapper">
-            <img src="images/CHAQUETA_SOFSHEL_1.jpeg" alt="Chaqueta Softshell Técnica">
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">Chaqueta Softshell</h3>
-            <p class="product-tech-desc">Chaqueta térmica, cortavientos e impermeable. Perfecta para condiciones de frío y humedad en terreno.</p>
-            <span class="product-fabric">Tela: Softshell Tricapa Impermeable</span>
-            <div class="product-price">$39.990</div>
-            <button class="btn-add-cart">Añadir al Carrito</button>
-          </div>
-        </article>
-
-        <!-- Producto 3 -->
-        <article class="product-card" data-id="p3" data-title="Chaleco Geólogo Minero" data-price="14990" data-image="images/GEOLOGO_MINERO_NARANJO.jpeg">
-          <div class="product-img-wrapper">
-            <img src="images/GEOLOGO_MINERO_NARANJO.jpeg" alt="Chaleco Geólogo Minero Naranjo">
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">Chaleco Geólogo</h3>
-            <p class="product-tech-desc">Chaleco multibolsillos de alta visibilidad con costuras reforzadas para almacenamiento y seguridad en faena.</p>
-            <span class="product-fabric">Tela: Poliéster de Alta Densidad y Refractante</span>
-            <div class="product-price">$14.990</div>
-            <button class="btn-add-cart">Añadir al Carrito</button>
-          </div>
-        </article>
-
-        <!-- Producto 4 -->
-        <article class="product-card" data-id="p4" data-title="Pantalón Ripstop Pesado" data-price="29990" data-image="images/PANTALON_RIPSTON_1.jpeg">
-          <div class="product-img-wrapper">
-            <img src="images/PANTALON_RIPSTON_1.jpeg" alt="Pantalón Ripstop Mollen">
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">Pantalón Ripstop Mollen</h3>
-            <p class="product-tech-desc">Pantalón de trabajo reforzado con bolsillos tácticos cargo y compartimentos especiales para rodilleras protectoras.</p>
-            <span class="product-fabric">Tela: Ripstop Antidesgarro 65/35</span>
-            <div class="product-price">$29.990</div>
-            <button class="btn-add-cart">Añadir al Carrito</button>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- ==========================================
-         SECCIÓN MÓDULO DE SEGUIMIENTO (TRACKING)
-         ========================================== -->
-    <section id="tracking" aria-labelledby="tracking-title">
-      <h2 id="tracking-title" class="section-title">Seguimiento de Envíos</h2>
-      <div class="tracking-wrapper">
-        <p>Ingresa tu número de seguimiento para consultar el estado logístico de tu despacho nacional en tiempo real.</p>
-        <form id="tracking-form" class="tracking-form" aria-label="Formulario de tracking">
-          <input type="text" id="tracking-input" class="tracking-input" placeholder="Ej: STK4857283 o CHX928472" required aria-label="Código de seguimiento">
-          <button type="submit" class="btn-track">Buscar</button>
-        </form>
-        
-        <!-- Tarjeta dinámica de resultados de tracking -->
-        <div id="tracking-result" class="tracking-result" aria-live="polite"></div>
-      </div>
-    </section>
-
-    <!-- ==========================================
-         SECCIÓN TESTIMONIOS
-         ========================================== -->
-    <section id="testimonios" aria-labelledby="testimonials-title">
-      <h2 id="testimonials-title" class="section-title">Testimonios</h2>
-      <div class="testimonios-container">
-        <blockquote>
-          <p>
-            "Equipar a nuestra cuadrilla con ALUVA ha sido un gran acierto. La calidad de las parkas y chaquetas resiste perfecto las condiciones de la faena, y la personalización del logo de la empresa quedó impecable."
-          </p>
-          <footer>Ignacio S., Encargado de Operaciones y Prevención (Sector Industrial / Faenero)</footer>
-        </blockquote>
-        
-        <blockquote>
-          <p>
-            "Mandé a personalizar unas prendas para mi trabajo de terreno y la atención fue increíble. Excelente confección, la ropa es muy cómoda y los detalles se notan de inmediato. 100% recomendados."
-          </p>
-          <footer>Cristian M., Supervisor de Operaciones (Faena)</footer>
-        </blockquote>
-      </div>
-    </section>
-
-    <!-- ==========================================
-         SECCIÓN FORMULARIO DE CONTACTO
-         ========================================== -->
-    <section id="contacto" aria-labelledby="contact-title">
-      <h2 id="contact-title" class="section-title">Contacto Corporativo</h2>
-      <div class="contacto-container">
-        <div class="contacto-form-wrapper">
-          <form action="#" method="POST" aria-label="Formulario de contacto de la empresa">
-            <div class="form-group">
-              <label for="nombre">Nombre Completo</label>
-              <input type="text" id="nombre" name="nombre" required placeholder="Ej: Juan Pérez">
-            </div>
-            <div class="form-group">
-              <label for="correo">Correo Electrónico</label>
-              <input type="email" id="correo" name="correo" autocomplete="email" required placeholder="Ej: jperez@empresa.cl">
-            </div>
-            <div class="form-group">
-              <label for="telefono">Teléfono / WhatsApp</label>
-              <input type="tel" id="telefono" name="telefono" autocomplete="tel" placeholder="Ej: +56 9 1234 5678">
-            </div>
-            <div class="form-group">
-              <label for="mensaje">Mensaje o Requerimiento Especial</label>
-              <textarea id="mensaje" name="mensaje" rows="5" placeholder="Describe los detalles de tu cotización o personalización corporativa..."></textarea>
-            </div>
-            <button type="submit" class="btn-primary btn-submit">Enviar Mensaje</button>
-          </form>
+    <section id="testimonios" class="lazy-section" aria-labelledby="testimonials-title">
+      <div class="container">
+        <h2 id="testimonials-title" class="section-title">Testimonios</h2>
+        <div class="grid-2" style="max-width: 1100px; margin: 0 auto;">
+          <blockquote style="border-left: 3px solid var(--color-border); padding: 1.5rem 0 1.5rem 2.5rem;">
+            <p style="font-size: 1.1rem; font-style: italic; line-height: 1.8; color: var(--color-text-primary); margin-bottom: 1rem;">
+              "Equipar a nuestra cuadrilla con ALUVA ha sido un gran acierto. La calidad de las parkas y chaquetas resiste perfecto las condiciones de la faena, y la personalización del logo de la empresa quedó impecable."
+            </p>
+            <footer style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: var(--letter-spacing-wide); color: var(--color-text-secondary); font-weight: 600;">
+              Ignacio S., Encargado de Operaciones y Prevención (Sector Industrial / Faenero)
+            </footer>
+          </blockquote>
+          
+          <blockquote style="border-left: 3px solid var(--color-border); padding: 1.5rem 0 1.5rem 2.5rem;">
+            <p style="font-size: 1.1rem; font-style: italic; line-height: 1.8; color: var(--color-text-primary); margin-bottom: 1rem;">
+              "Mandé a personalizar unas prendas para mi trabajo de terreno y la atención fue increíble. Excelente confección, la ropa es muy cómoda y los detalles se notan de inmediato. 100% recomendados."
+            </p>
+            <footer style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: var(--letter-spacing-wide); color: var(--color-text-secondary); font-weight: 600;">
+              Cristian M., Supervisor de Operaciones (Faena)
+            </footer>
+          </blockquote>
         </div>
-        
-        <div class="contacto-info-wrapper">
-          <div class="info-item">
-            <h3>Correo Electrónico</h3>
-            <p><a href="mailto:aluva.seguridad@gmail.com">aluva.seguridad@gmail.com</a></p>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECCIÓN CONTACTO (OPTIMIZADO PARA RENDIMIENTO)
+         ========================================== -->
+    <section id="contacto" class="lazy-section" style="background-color: var(--color-bg-base);" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 id="contact-title" class="section-title">Contacto Corporativo</h2>
+        <div class="grid-2">
+          <div class="contacto-form-wrapper">
+            <form action="#" method="POST" aria-label="Formulario de contacto corporativo">
+              <div class="form-group" style="display: grid; gap: 0.5rem; margin-bottom: 1.5rem;">
+                <label for="nombre" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: var(--letter-spacing-wide); font-weight: 600;">Nombre Completo</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Ej: Juan Pérez" style="padding: 1rem; border: 1px solid var(--color-border); border-radius: 0;">
+              </div>
+              <div class="form-group" style="display: grid; gap: 0.5rem; margin-bottom: 1.5rem;">
+                <label for="correo" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: var(--letter-spacing-wide); font-weight: 600;">Correo Electrónico</label>
+                <input type="email" id="correo" name="correo" autocomplete="email" required placeholder="Ej: jperez@empresa.cl" style="padding: 1rem; border: 1px solid var(--color-border); border-radius: 0;">
+              </div>
+              <div class="form-group" style="display: grid; gap: 0.5rem; margin-bottom: 1.5rem;">
+                <label for="telefono" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: var(--letter-spacing-wide); font-weight: 600;">Teléfono / WhatsApp</label>
+                <input type="tel" id="telefono" name="telefono" autocomplete="tel" placeholder="Ej: +56 9 1234 5678" style="padding: 1rem; border: 1px solid var(--color-border); border-radius: 0;">
+              </div>
+              <div class="form-group" style="display: grid; gap: 0.5rem; margin-bottom: 1.5rem;">
+                <label for="mensaje" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: var(--letter-spacing-wide); font-weight: 600;">Mensaje o Consulta Especial</label>
+                <textarea id="mensaje" name="mensaje" rows="5" placeholder="Indica detalles de cotización, cantidad de prendas y requerimientos de logo..." style="padding: 1rem; border: 1px solid var(--color-border); border-radius: 0; font-family: var(--font-family);"></textarea>
+              </div>
+              <button type="submit" class="btn">Enviar Mensaje</button>
+            </form>
           </div>
-          <div class="info-item">
-            <h3>Ubicación / Taller</h3>
-            <p>Tornamesa 42, Los Andes, Valparaíso, Chile</p>
-          </div>
-          <div class="info-item">
-            <h3>Redes Sociales</h3>
-            <ul>
-              <li><a href="https://www.instagram.com/aluva.outdoor" target="_blank" rel="noopener">Instagram: @aluva.outdoor</a></li>
-              <li><a href="https://www.tiktok.com/@aluva.outdoor" target="_blank" rel="noopener">TikTok: @aluva.outdoor</a></li>
-            </ul>
+          
+          <div class="contacto-info-wrapper" style="display: flex; flex-direction: column; gap: 2.5rem; border-left: 1px solid var(--color-light-gray); padding-left: 4rem;">
+            <div>
+              <h3 style="font-size: 1.1rem; text-transform: uppercase; letter-spacing: var(--letter-spacing-wide); margin-bottom: 0.75rem;">Correo Electrónico</h3>
+              <p><a href="mailto:aluva.seguridad@gmail.com" style="transition: var(--transition-default); color: var(--color-text-secondary);">aluva.seguridad@gmail.com</a></p>
+            </div>
+            <div>
+              <h3 style="font-size: 1.1rem; text-transform: uppercase; letter-spacing: var(--letter-spacing-wide); margin-bottom: 0.75rem;">Ubicación / Taller</h3>
+              <p>Tornamesa 42, Los Andes, Valparaíso, Chile</p>
+            </div>
+            <div>
+              <h3 style="font-size: 1.1rem; text-transform: uppercase; letter-spacing: var(--letter-spacing-wide); margin-bottom: 0.75rem;">Redes Sociales</h3>
+              <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem;">
+                <li><a href="https://www.instagram.com/aluva.outdoor" target="_blank" rel="noopener" style="color: var(--color-text-secondary);">Instagram: @aluva.outdoor</a></li>
+                <li><a href="https://www.tiktok.com/@aluva.outdoor" target="_blank" rel="noopener" style="color: var(--color-text-secondary);">TikTok: @aluva.outdoor</a></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -243,7 +180,7 @@
        FOOTER
        ========================================== -->
   <footer>
-    <img src="images/ALUVA_TIMBRE.jpeg" alt="Timbre ALUVA" class="footer-timbre">
+    <img src="images/ALUVA_TIMBRE.jpeg" alt="Timbre ALUVA" class="footer-timbre" loading="lazy" width="90" height="90">
     <ul class="footer-socials">
       <li><a href="https://www.instagram.com/aluva.outdoor" target="_blank" rel="noopener">Instagram</a></li>
       <li><a href="https://www.tiktok.com/@aluva.outdoor" target="_blank" rel="noopener">TikTok</a></li>
@@ -254,7 +191,7 @@
   </footer>
 
   <!-- ==========================================
-       MODAL CARRITO DE COMPRAS (DIALOG SIDEBAR)
+       CARRITO SIDEBAR MODAL DIALOG
        ========================================== -->
   <dialog id="cart-dialog" class="cart-sidebar" aria-modal="true" aria-labelledby="cart-title-dialog">
     <div class="cart-header">
@@ -267,12 +204,10 @@
       </button>
     </div>
     
-    <!-- Contenedor dinámico de productos del carrito -->
     <div id="cart-items" class="cart-items-container">
-      <!-- Se llena dinámicamente con JavaScript -->
+      <!-- Elementos generados dinámicamente en JS -->
     </div>
     
-    <!-- Resumen y totales del carrito -->
     <div class="cart-footer">
       <div class="promo-container">
         <input type="text" id="promo-input" class="promo-input" placeholder="Cupón de descuento" aria-label="Ingresa cupón de descuento">
@@ -299,7 +234,5 @@
     </div>
   </dialog>
 
-  <!-- Lógica e interactividad -->
-  <script src="js/main.js"></script>
 </body>
 </html>
