@@ -28,7 +28,6 @@ header {
 .logo-container img {
   height: 50px;
   width: auto;
-  filter: brightness(0) invert(1); /* Hacemos el logo monocromático en fondo oscuro */
 }
 
 .logo-text {
@@ -265,7 +264,7 @@ section:last-of-type {
 
 .catalog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
   gap: 2.5rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -652,7 +651,6 @@ footer {
 .footer-timbre {
   width: 90px;
   height: auto;
-  filter: brightness(0) invert(1);
 }
 
 .footer-socials {
