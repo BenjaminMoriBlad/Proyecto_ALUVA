@@ -1,0 +1,57 @@
+/* ==========================================================================
+   ALUVA - VARIABLES CSS GLOBALES (Roadmap Oficial - Fase 1)
+   Paleta monocromática corporativa. Conforme al sistema de diseño del roadmap.
+   ========================================================================== */
+
+:root {
+  /* ── Paleta Principal (Roadmap Oficial) ── */
+  --color-bg-main:        #FAFAFA; /* Fondo principal: plataforma y vista de productos */
+  --color-text-main:      #1A1A1A; /* Encabezados, textos principales, footer */
+  --color-text-secondary: #4A5568; /* Textos secundarios, descripciones EPP, especificaciones */
+  --color-contrast:       #FFFFFF; /* Contraste sobre fondos oscuros, tarjetas destacadas */
+  --color-border-divider: #E2E8F0; /* Bordes de tarjetas, separadores, grillas de tallas */
+
+  /* ── Aliases Semánticos (Para compatibilidad interna) ── */
+  --color-bg-dark:        var(--color-text-main);      /* Header, CTA oscuros, bloques estructurales */
+  --color-border:         var(--color-text-secondary); /* Bordes fuertes (inputs, tablas) */
+  --color-light-gray:     var(--color-border-divider); /* Separadores suaves */
+
+  /* ── Tipografía Corporativa Premium ── */
+  --font-family:          'Helvetica Neue', Arial, sans-serif;
+  --font-size-base:       16px;
+  --line-height-base:     1.6;
+  --letter-spacing-wide:  0.12em;
+  --letter-spacing-std:   0.04em;
+
+  /* ── Breakpoints (Mobile-First) ── */
+  /* Uso en media queries: @media (min-width: var(--bp-tablet)) → NO funciona en @media */
+  /* Documentados aquí como referencia para JS y PostCSS en Fase 2 */
+  /* Mobile:  < 768px  (base, sin breakpoint) */
+  /* Tablet:  768px – 1024px                  */
+  /* Desktop: > 1024px                        */
+
+  /* ── Layout ── */
+  --header-height:        72px;
+  --container-max-width:  1200px;
+  --section-padding-v:    5rem;
+  --section-padding-v-sm: 3rem;
+
+  /* ── Transiciones ── */
+  --transition-fast:      all 0.2s ease;
+  --transition-default:   all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow:      all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ── Espaciado ── */
+  --space-xs:  0.25rem;
+  --space-sm:  0.5rem;
+  --space-md:  1rem;
+  --space-lg:  1.5rem;
+  --space-xl:  2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+  /* ── Elevación / Sombras ── */
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md:  0 4px 16px rgba(0,0,0,0.10);
+  --shadow-lg:  0 8px 30px rgba(0,0,0,0.14);
+}

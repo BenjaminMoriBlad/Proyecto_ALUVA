@@ -1,0 +1,217 @@
+/* ==========================================================================
+   ALUVA - HEADER + MENÚ HAMBURGUESA (Mobile-First)
+   ========================================================================== */
+
+/* ── Estructura del Header ── */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--color-text-main);
+  color: var(--color-contrast);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: var(--space-xl);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ── Logo ── */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  z-index: 1001; /* Sobre el overlay del menú mobile */
+}
+
+.logo-container img {
+  height: 48px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  /* Técnica blend-mode para logos JPEG con fondo blanco */
+  filter: invert(1);
+  mix-blend-mode: screen;
+}
+
+.logo-text {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--color-contrast);
+}
+
+/* ── Navegación Desktop ── */
+.nav-links {
+  display: flex;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.nav-links a {
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  color: rgba(255,255,255,0.70);
+  transition: var(--transition-fast);
+  position: relative;
+  padding-block: var(--space-xs);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-contrast);
+  transition: var(--transition-default);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--color-contrast);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* ── Acciones del Header (carrito + hamburguesa) ── */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  z-index: 1001;
+}
+
+/* ── Botón Carrito ── */
+.cart-icon-container {
+  position: relative;
+  background: none;
+  border: none;
+  color: var(--color-contrast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xs);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.cart-icon-container:hover { opacity: 0.75; }
+
+.cart-icon-container svg { width: 24px; height: 24px; }
+
+.cart-counter {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: var(--color-contrast);
+  color: var(--color-text-main);
+  font-size: 0.7rem;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 3px;
+}
+
+/* ── Botón Hamburguesa (Mobile) ── */
+.nav-hamburger {
+  display: none; /* Oculto en desktop */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-xs);
+  z-index: 1001;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-contrast);
+  transition: var(--transition-default);
+  transform-origin: center;
+}
+
+/* Animación de hamburguesa a X */
+.nav-hamburger[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-hamburger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.nav-hamburger[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Menú Mobile Overlay ── */
+.nav-mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-text-main);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-xl);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.nav-mobile-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.nav-mobile-overlay a {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  color: rgba(255,255,255,0.6);
+  transition: var(--transition-fast);
+}
+
+.nav-mobile-overlay a:hover,
+.nav-mobile-overlay a.active {
+  color: var(--color-contrast);
+}
+
+/* ── Breakpoints ── */
+
+/* Tablet y Mobile: mostrar hamburguesa, ocultar nav links */
+@media (max-width: 1023px) {
+  header {
+    padding-inline: var(--space-md);
+  }
+
+  .nav-links {
+    display: none; /* El menú mobile lo reemplaza */
+  }
+
+  .nav-hamburger {
+    display: flex;
+  }
+}

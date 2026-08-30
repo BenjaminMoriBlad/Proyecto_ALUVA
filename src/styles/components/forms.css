@@ -1,0 +1,122 @@
+/* ==========================================================================
+   ALUVA - FORMULARIOS DINÁMICOS (Fase 2 - Seguridad Frontend)
+   Estilos para formularios renderizados vía JavaScript (no HTML estático).
+   ========================================================================== */
+
+/* ── Wrapper del Formulario ── */
+.form-wrapper {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+/* ── Grupo de Campo ── */
+.form-group {
+  display: grid;
+  gap: var(--space-xs);
+}
+
+/* ── Labels ── */
+.form-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  color: var(--color-text-main);
+}
+
+/* ── Inputs y Textareas ── */
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  background-color: var(--color-contrast);
+  color: var(--color-text-main);
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
+  /* Sin appearance nativo en algunos browsers */
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--color-text-main);
+}
+
+/* Estado de validación (se agrega por JS en Fase 2) */
+.form-input.is-invalid,
+.form-textarea.is-invalid {
+  border-color: var(--color-border); /* Sin rojo: solo borde reforzado */
+}
+
+.form-input.is-valid,
+.form-textarea.is-valid {
+  border-color: var(--color-text-secondary);
+}
+
+/* ── Mensaje de Error/Ayuda ── */
+.form-error-msg {
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+  font-style: italic;
+  display: none;
+}
+
+.form-input.is-invalid ~ .form-error-msg {
+  display: block;
+}
+
+/* ── Textarea específico ── */
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* ── Sección de Info de Contacto ── */
+.contact-info-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.contact-info-block h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  margin-bottom: var(--space-xs);
+  color: var(--color-text-main);
+}
+
+.contact-info-block p,
+.contact-info-block a {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  transition: var(--transition-fast);
+}
+
+.contact-info-block a:hover {
+  color: var(--color-text-main);
+}
+
+/* ── Layout Contacto (2 columnas en desktop) ── */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+}
+
+@media (min-width: 1024px) {
+  .contact-layout {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--space-3xl);
+  }
+
+  .contact-divider {
+    border-left: 1px solid var(--color-border-divider);
+    padding-left: var(--space-3xl);
+  }
+}

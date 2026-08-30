@@ -1,0 +1,238 @@
+/* ==========================================================================
+   ALUVA - CARRITO DE COMPRAS — Sidebar Dialog (Migrado desde cart.css)
+   ========================================================================== */
+
+dialog.cart-sidebar {
+  border: none;
+  background-color: var(--color-contrast);
+  width: 440px;
+  max-width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  margin-left: auto;
+  margin-right: 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-lg);
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), display 0.4s allow-discrete;
+}
+
+dialog.cart-sidebar[open] { transform: translateX(0); }
+
+@starting-style {
+  dialog.cart-sidebar[open] { transform: translateX(100%); }
+}
+
+dialog.cart-sidebar::backdrop {
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+dialog.cart-sidebar[open]::backdrop { opacity: 1; }
+
+@starting-style {
+  dialog.cart-sidebar[open]::backdrop { opacity: 0; }
+}
+
+/* ── Encabezado del Carrito ── */
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-lg) var(--space-xl);
+  border-bottom: 1px solid var(--color-border-divider);
+  height: var(--header-height);
+  background-color: var(--color-bg-main);
+  flex-shrink: 0;
+}
+
+.cart-header h2 {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+.btn-close-cart {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.btn-close-cart:hover { transform: rotate(90deg); }
+.btn-close-cart svg { width: 20px; height: 20px; }
+
+/* ── Lista de Ítems ── */
+.cart-items-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.cart-empty-message {
+  text-align: center;
+  color: var(--color-text-secondary);
+  margin-top: var(--space-3xl);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+/* ── Ítem del Carrito ── */
+.cart-item {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: var(--space-md);
+  align-items: start;
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--color-border-divider);
+}
+
+.cart-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+.cart-item-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border: 1px solid var(--color-border-divider);
+}
+
+.cart-item-details { display: flex; flex-direction: column; gap: var(--space-xs); }
+.cart-item-title { font-size: 0.875rem; font-weight: 700; text-transform: uppercase; color: var(--color-text-main); }
+.cart-item-price { font-size: 0.95rem; font-weight: 700; color: var(--color-text-main); }
+
+.cart-item-qty {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color-border-divider);
+  align-self: flex-start;
+  margin-top: var(--space-sm);
+}
+
+.btn-qty {
+  background: none;
+  border: none;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: var(--transition-fast);
+}
+
+.btn-qty:hover { background-color: var(--color-border-divider); }
+.qty-val { width: 28px; text-align: center; font-size: 0.82rem; font-weight: 600; }
+
+.btn-remove-item {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  transition: var(--transition-fast);
+  padding: var(--space-xs);
+}
+
+.btn-remove-item:hover { color: var(--color-text-main); }
+.btn-remove-item svg { width: 18px; height: 18px; }
+
+/* ── Footer del Carrito ── */
+.cart-footer {
+  padding: var(--space-xl);
+  border-top: 1px solid var(--color-border-divider);
+  background-color: var(--color-bg-main);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  flex-shrink: 0;
+}
+
+/* ── Cupón de Descuento ── */
+.promo-container { display: flex; }
+
+.promo-input {
+  flex-grow: 1;
+  padding: 0.75rem var(--space-md);
+  border: 1px solid var(--color-border);
+  border-right: none;
+  border-radius: 0;
+  font-family: var(--font-family);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  background-color: var(--color-contrast);
+}
+
+.promo-input:focus { outline: none; }
+
+.btn-promo {
+  background-color: var(--color-text-main);
+  color: var(--color-contrast);
+  border: 1px solid var(--color-text-main);
+  padding: 0.75rem var(--space-lg);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  cursor: pointer;
+  border-radius: 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.promo-feedback { font-size: 0.78rem; font-weight: 600; }
+.promo-feedback.success { color: var(--color-text-main); }
+.promo-feedback.error   { color: var(--color-text-secondary); font-style: italic; }
+
+/* ── Totales ── */
+.cart-totals { display: flex; flex-direction: column; gap: var(--space-sm); }
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.92rem;
+  color: var(--color-text-secondary);
+}
+
+.total-row.grand-total {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  border-top: 1px solid var(--color-border-divider);
+  padding-top: var(--space-sm);
+  margin-top: var(--space-xs);
+}
+
+/* ── Botón Checkout ── */
+.btn-checkout {
+  width: 100%;
+  background-color: var(--color-text-main);
+  color: var(--color-contrast);
+  border: 1px solid var(--color-text-main);
+  padding: var(--space-md);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  cursor: pointer;
+  border-radius: 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: var(--transition-default);
+}
+
+.btn-checkout:hover {
+  background-color: transparent;
+  color: var(--color-text-main);
+}
+
+.btn-checkout:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

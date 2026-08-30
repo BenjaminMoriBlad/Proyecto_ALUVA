@@ -1,0 +1,110 @@
+/* ==========================================================================
+   ALUVA - RESET CSS MODERNO + BASE MOBILE-FIRST (Fase 1)
+   Normalización cross-browser sin dependencias externas.
+   ========================================================================== */
+
+/* ── Reset Universal ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Documento y Scroll ── */
+html {
+  font-size: var(--font-size-base);
+  scroll-behavior: smooth;
+  /* Evitar saltos de layout al aparecer scrollbar */
+  scrollbar-gutter: stable;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* ── Body Base (Mobile-First) ── */
+body {
+  background-color: var(--color-bg-main);
+  color: var(--color-text-main);
+  font-family: var(--font-family);
+  font-size: 1rem;
+  line-height: var(--line-height-base);
+  letter-spacing: var(--letter-spacing-std);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── Tipografía ── */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text-main);
+  line-height: 1.2;
+  letter-spacing: var(--letter-spacing-wide);
+  font-weight: 700;
+}
+
+p {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+strong, b {
+  color: var(--color-text-main);
+  font-weight: 700;
+}
+
+/* ── Elementos Interactivos ── */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* ── Media ── */
+img, video, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ── Listas ── */
+ul, ol {
+  list-style: none;
+}
+
+/* ── Tablas ── */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* ── Focus Accesible (WCAG 2.1 AA) ── */
+:focus-visible {
+  outline: 2px solid var(--color-border);
+  outline-offset: 4px;
+}
+
+/* ── Reducción de Movimiento (Accesibilidad) ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
