@@ -34,7 +34,6 @@ header {
      Invertimos los colores para volver el fondo negro y el contenido del logo blanco.
      Luego, usamos mix-blend-mode: screen para fusionarlo con el fondo oscuro (#1A1A1A),
      haciendo que el fondo negro del logo invertido sea invisible/transparente. */
-  filter: invert(1);
   mix-blend-mode: screen;
 }
 
