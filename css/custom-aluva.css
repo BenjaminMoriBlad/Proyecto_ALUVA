@@ -1,0 +1,730 @@
+/* ==========================================================================
+   ALUVA - IDENTIDAD VISUAL MONOCROMÁTICA OFICIAL (OVERRIDE TOTAL)
+   Paleta de Colores Exclusiva:
+   - Primario Fondo: Blanco Nieve (#FAFAFA)
+   - Primario Textos / Oscuros: Negro Grafito Oscuro (#1A1A1A)
+   - Secundario Textos / Bordes: Gris Cemento Fuerte (#4A5568)
+   - Contraste / Acentos: Blanco Puro (#FFFFFF) sobre zonas oscuras
+   - Divisores: Gris Claro (#E2E8F0)
+   ========================================================================== */
+
+:root {
+  --color-bg-base: #FAFAFA;       /* Snow White */
+  --color-bg-dark: #1A1A1A;       /* Dark Graphite Black */
+  --color-text-primary: #1A1A1A;  /* Dark Graphite Black */
+  --color-text-secondary: #4A5568;/* Strong Cement Grey */
+  --color-border: #4A5568;        /* Strong Cement Grey */
+  --color-white: #FFFFFF;         /* Pure White */
+  --color-light-gray: #E2E8F0;    /* Light Grey for dividers */
+  
+  --font-family: 'Helvetica Neue', Arial, sans-serif;
+  --transition-default: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset y Base Global */
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg-base) !important;
+  color: var(--color-text-primary) !important;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text-primary) !important;
+  font-family: var(--font-family);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+p {
+  color: var(--color-text-secondary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-default);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------
+   TOP BAR CORPORATIVA
+   -------------------------------------------------------------------------- */
+.top-bar, .top-bar.light {
+  background-color: var(--color-bg-dark) !important;
+  color: var(--color-white) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  padding: 9px 0 !important;
+  font-size: 0.85rem !important;
+}
+
+.top-bar a, .top-bar span, .top-bar li {
+  color: var(--color-white) !important;
+}
+
+.top-bar a:hover {
+  color: var(--color-light-gray) !important;
+}
+
+.top-bar .text-warning, .top-bar i.fa {
+  color: var(--color-white) !important;
+}
+
+.top-contact-links {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 20px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.top-social-list {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.top-social-circle {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  background-color: transparent !important;
+  color: var(--color-white) !important;
+  border: 1px solid var(--color-border) !important;
+  transition: var(--transition-default) !important;
+}
+
+.top-social-circle:hover {
+  background-color: var(--color-white) !important;
+  color: var(--color-bg-dark) !important;
+  border-color: var(--color-white) !important;
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   NAVBAR PRINCIPAL
+   -------------------------------------------------------------------------- */
+.navbar, .navbar-light, .bg-faded {
+  background-color: var(--color-bg-base) !important;
+  border-bottom: 1px solid var(--color-light-gray) !important;
+  padding: 1rem 0 !important;
+  transition: var(--transition-default);
+}
+
+.navbar-brand .official-brand-logo {
+  max-height: 52px;
+  width: auto;
+  object-fit: contain;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 0.08em !important;
+  color: var(--color-text-primary) !important;
+  padding: 0.75rem 1.1rem !important;
+  position: relative;
+  transition: var(--transition-default);
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-item.active .nav-link {
+  color: var(--color-text-secondary) !important;
+}
+
+.cart-trigger-btn {
+  position: relative;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer;
+  font-size: 1.25rem;
+  color: var(--color-text-primary) !important;
+  padding: 8px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition-default);
+}
+
+.cart-trigger-btn:hover {
+  transform: scale(1.05);
+}
+
+.cart-badge-count {
+  background-color: var(--color-bg-dark) !important;
+  color: var(--color-white) !important;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-white);
+}
+
+/* --------------------------------------------------------------------------
+   HERO BANNER (PARALLAX EFFECT)
+   -------------------------------------------------------------------------- */
+.hero-parallax-aluva {
+  position: relative;
+  min-height: 540px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-white) !important;
+  background-image: linear-gradient(rgba(26, 26, 26, 0.78), rgba(26, 26, 26, 0.78)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=80');
+  background-attachment: fixed !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.hero-parallax-aluva h1 {
+  color: var(--color-white) !important;
+  font-size: 3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 1.25rem;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.hero-parallax-aluva p.lead {
+  color: var(--color-light-gray) !important;
+  font-size: 1.2rem;
+  max-width: 680px;
+  margin: 0 auto 2rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.hero-badge-aluva {
+  background-color: transparent !important;
+  color: var(--color-white) !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+  padding: 6px 16px !important;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 0 !important;
+  display: inline-block;
+}
+
+/* --------------------------------------------------------------------------
+   BOTONES Y CTA (ESTRICTO ORTOGONAL)
+   -------------------------------------------------------------------------- */
+.btn-aluva-solid {
+  background-color: var(--color-white) !important;
+  color: var(--color-bg-dark) !important;
+  border: 1px solid var(--color-white) !important;
+  border-radius: 0 !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  padding: 0.85rem 2rem !important;
+  transition: var(--transition-default) !important;
+}
+
+.btn-aluva-solid:hover {
+  background-color: transparent !important;
+  color: var(--color-white) !important;
+  border-color: var(--color-white) !important;
+}
+
+.btn-aluva-outline {
+  background-color: transparent !important;
+  color: var(--color-white) !important;
+  border: 1px solid rgba(255, 255, 255, 0.8) !important;
+  border-radius: 0 !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  padding: 0.85rem 2rem !important;
+  transition: var(--transition-default) !important;
+}
+
+.btn-aluva-outline:hover {
+  background-color: var(--color-white) !important;
+  color: var(--color-bg-dark) !important;
+  border-color: var(--color-white) !important;
+}
+
+.btn-aluva-dark {
+  background-color: var(--color-bg-dark) !important;
+  color: var(--color-white) !important;
+  border: 1px solid var(--color-bg-dark) !important;
+  border-radius: 0 !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  padding: 0.85rem 1.8rem !important;
+  transition: var(--transition-default) !important;
+}
+
+.btn-aluva-dark:hover {
+  background-color: transparent !important;
+  color: var(--color-text-primary) !important;
+  border-color: var(--color-bg-dark) !important;
+}
+
+/* Anular clases amarillas/naranjas de la plantilla Assan */
+.btn-warning {
+  background-color: var(--color-bg-dark) !important;
+  color: var(--color-white) !important;
+  border: 1px solid var(--color-bg-dark) !important;
+  border-radius: 0 !important;
+}
+
+.btn-warning:hover {
+  background-color: transparent !important;
+  color: var(--color-text-primary) !important;
+  border-color: var(--color-bg-dark) !important;
+}
+
+.text-warning, .bg-warning {
+  color: var(--color-bg-dark) !important;
+}
+
+.bg-warning {
+  background-color: var(--color-bg-dark) !important;
+}
+
+/* Divisores de Sección */
+.aluva-title-divider {
+  height: 2px !important;
+  width: 60px !important;
+  background-color: var(--color-bg-dark) !important;
+  margin: 1rem auto 1.5rem !important;
+}
+
+/* --------------------------------------------------------------------------
+   SECCIONES Y FONDOS
+   -------------------------------------------------------------------------- */
+section.bg-light, .bg-light {
+  background-color: var(--color-bg-base) !important;
+}
+
+section {
+  border-bottom: 1px solid var(--color-light-gray);
+}
+
+/* --------------------------------------------------------------------------
+   PILARES / PROPUESTA DE VALOR
+   -------------------------------------------------------------------------- */
+.pilar-card-aluva {
+  background-color: var(--color-white) !important;
+  border: 1px solid var(--color-light-gray) !important;
+  border-radius: 0 !important;
+  padding: 1.75rem !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
+  transition: var(--transition-default);
+}
+
+.pilar-card-aluva:hover {
+  border-color: var(--color-border) !important;
+  transform: translateY(-3px);
+}
+
+.pilar-card-aluva i {
+  color: var(--color-bg-dark) !important;
+}
+
+/* --------------------------------------------------------------------------
+   QUIÉNES SOMOS, MISIÓN Y VISIÓN
+   -------------------------------------------------------------------------- */
+.info-card-aluva {
+  background-color: var(--color-white) !important;
+  border: 1px solid var(--color-light-gray) !important;
+  border-left: 4px solid var(--color-bg-dark) !important;
+  border-radius: 0 !important;
+  padding: 2rem !important;
+  height: 100%;
+}
+
+.info-card-aluva i {
+  color: var(--color-bg-dark) !important;
+}
+
+/* --------------------------------------------------------------------------
+   EQUIPO DE DESARROLLO Y GESTIÓN
+   -------------------------------------------------------------------------- */
+.team-card-aluva {
+  background-color: var(--color-white) !important;
+  border: 1px solid var(--color-light-gray) !important;
+  border-top: 3px solid var(--color-bg-dark) !important;
+  border-radius: 0 !important;
+  padding: 2rem 1.5rem !important;
+  text-align: center;
+  transition: var(--transition-default);
+  height: 100%;
+}
+
+.team-card-aluva:hover {
+  border-color: var(--color-border) !important;
+  border-top-color: var(--color-bg-dark) !important;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.team-avatar-placeholder {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background-color: var(--color-bg-dark);
+  color: var(--color-white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  border: 2px solid var(--color-light-gray);
+}
+
+.team-card-aluva .team-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text-primary) !important;
+  margin-bottom: 0.4rem;
+}
+
+.team-card-aluva .team-role {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   CATÁLOGO DESTACADO
+   -------------------------------------------------------------------------- */
+.product-card-aluva {
+  background-color: var(--color-white) !important;
+  border: 1px solid var(--color-light-gray) !important;
+  border-radius: 0 !important;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: var(--transition-default);
+}
+
+.product-card-aluva:hover {
+  border-color: var(--color-border) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.product-thumb {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-white);
+  padding: 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--color-light-gray);
+}
+
+.product-thumb img {
+  max-height: 200px;
+  width: auto;
+  margin: 0 auto;
+  object-fit: contain;
+  transition: var(--transition-default);
+}
+
+.product-card-aluva:hover .product-thumb img {
+  transform: scale(1.05);
+}
+
+.product-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-ref {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.product-category {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.product-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text-primary) !important;
+  margin-bottom: 0.5rem;
+}
+
+.product-desc {
+  font-size: 0.88rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.product-fabric-badge {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-secondary);
+  background-color: var(--color-bg-base);
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--color-light-gray);
+  align-self: flex-start;
+  margin-bottom: 1.25rem;
+}
+
+.product-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-light-gray);
+}
+
+.product-footer .price {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-text-primary) !important;
+}
+
+.btn-add-cart-aluva {
+  background-color: var(--color-bg-dark) !important;
+  color: var(--color-white) !important;
+  border: 1px solid var(--color-bg-dark) !important;
+  border-radius: 0 !important;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: var(--transition-default);
+}
+
+.btn-add-cart-aluva:hover {
+  background-color: transparent !important;
+  color: var(--color-text-primary) !important;
+}
+
+/* --------------------------------------------------------------------------
+   TESTIMONIOS
+   -------------------------------------------------------------------------- */
+.testimonial-card-aluva {
+  background-color: var(--color-white) !important;
+  border: 1px solid var(--color-light-gray) !important;
+  border-left: 3px solid var(--color-bg-dark) !important;
+  border-radius: 0 !important;
+  padding: 2.25rem !important;
+  height: 100%;
+}
+
+.testimonial-card-aluva p {
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--color-text-primary) !important;
+  margin-bottom: 1.25rem;
+}
+
+.testimonial-card-aluva footer {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-secondary) !important;
+}
+
+/* --------------------------------------------------------------------------
+   FORMULARIO Y CONTACTO
+   -------------------------------------------------------------------------- */
+.contact-box-aluva {
+  background-color: var(--color-white) !important;
+  border: 1px solid var(--color-light-gray) !important;
+  border-radius: 0 !important;
+  padding: 2.5rem !important;
+}
+
+.form-control {
+  background-color: var(--color-bg-base) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 0 !important;
+  color: var(--color-text-primary) !important;
+  font-size: 0.95rem;
+  padding: 0.85rem 1rem;
+}
+
+.form-control:focus {
+  background-color: var(--color-white) !important;
+  border-color: var(--color-bg-dark) !important;
+  box-shadow: none !important;
+  color: var(--color-text-primary) !important;
+}
+
+.contact-info-block h6 {
+  color: var(--color-text-primary) !important;
+  font-weight: 700;
+}
+
+.contact-info-block i {
+  color: var(--color-bg-dark) !important;
+}
+
+/* --------------------------------------------------------------------------
+   FOOTER CORPORATIVO
+   -------------------------------------------------------------------------- */
+.footer-aluva {
+  background-color: var(--color-bg-dark) !important;
+  color: var(--color-white) !important;
+  border-top: 1px solid var(--color-border) !important;
+  padding: 4rem 0 3rem !important;
+}
+
+.footer-timbre-img {
+  max-width: 90px;
+  height: auto;
+  filter: brightness(0) invert(1);
+}
+
+.footer-aluva a {
+  color: var(--color-white) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.footer-aluva a:hover {
+  color: var(--color-light-gray) !important;
+  text-decoration: underline;
+}
+
+.footer-aluva p {
+  color: rgba(255, 255, 255, 0.5) !important;
+  letter-spacing: 0.03em;
+}
+
+/* --------------------------------------------------------------------------
+   BOTÓN FLOTANTE DE WHATSAPP
+   -------------------------------------------------------------------------- */
+.whatsapp-float-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: var(--color-bg-dark) !important;
+  color: var(--color-white) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 50px !important;
+  padding: 12px 22px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 24px rgba(26, 26, 26, 0.35) !important;
+  z-index: 999;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: var(--transition-default);
+}
+
+.whatsapp-float-btn:hover {
+  background-color: #25d366 !important;
+  color: #ffffff !important;
+  border-color: #25d366 !important;
+  transform: translateY(-3px) scale(1.02);
+}
+
+.whatsapp-float-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* --------------------------------------------------------------------------
+   CARRITO OFFCANVAS (PUSHY)
+   -------------------------------------------------------------------------- */
+.pushy {
+  background-color: var(--color-white) !important;
+  border-left: 1px solid var(--color-light-gray) !important;
+}
+
+.cart-header-title {
+  background-color: var(--color-bg-dark) !important;
+  color: var(--color-white) !important;
+  padding: 1.5rem 2rem !important;
+  border-bottom: 1px solid var(--color-border) !important;
+}
+
+.cart-header-title h3 {
+  color: var(--color-white) !important;
+  margin: 0;
+  font-size: 1.2rem;
+  letter-spacing: 0.05em;
+}
+
+.cart-header-title i {
+  color: var(--color-white) !important;
+}
+
+.btn-checkout-aluva {
+  background-color: var(--color-bg-dark) !important;
+  color: var(--color-white) !important;
+  border: 1px solid var(--color-bg-dark) !important;
+  border-radius: 0 !important;
+  width: 100%;
+  padding: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: var(--transition-default);
+}
+
+.btn-checkout-aluva:hover {
+  background-color: transparent !important;
+  color: var(--color-text-primary) !important;
+}
+
+.coupon-group input {
+  border-radius: 0 !important;
+  border: 1px solid var(--color-border) !important;
+  background-color: var(--color-bg-base) !important;
+}
+
+.coupon-group button {
+  border-radius: 0 !important;
+  background-color: var(--color-bg-dark) !important;
+  color: var(--color-white) !important;
+  border: 1px solid var(--color-bg-dark) !important;
+}
+
