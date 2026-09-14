@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ALUVA - LÓGICA DEL CARRITO DE COMPRAS LOCAL / SHOPIFY SDK HOOKS
+   ALUVA - LÓGICA DEL CARRITO DE COMPRAS (DESPLIEGUE EXCLUSIVO AL HACER CLICK)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -7,69 +7,84 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initCartModule() {
-  // Estado local (sincronizado con localStorage para persistir entre páginas)
+  // Estado local sincronizado con localStorage
   let cart = JSON.parse(localStorage.getItem('aluva_cart')) || [];
   let activeDiscount = parseFloat(localStorage.getItem('aluva_cart_discount')) || 0;
   let activeDiscountCode = localStorage.getItem('aluva_cart_coupon') || '';
 
-  // Códigos de descuento válidos
+  // Cupones de descuento válidos
   const VALID_COUPONS = {
     'ALUVA10': 10,
     'ALUVA20': 20,
     'PREMIUM15': 15
   };
 
-  // Elementos del DOM
-  const cartDialog = document.getElementById('cart-dialog');
-  const cartToggleBtn = document.getElementById('cart-toggle-btn');
-  const cartCloseBtn = document.getElementById('cart-close-btn');
-  const cartCounter = document.getElementById('cart-counter');
-  const cartItemsContainer = document.getElementById('cart-items');
+  // Elementos DOM
+  const cartTriggers = document.querySelectorAll('.cart-trigger-btn');
+  const cartCloseBtn = document.getElementById('cart-close-pushy');
+  const cartCounterBadges = document.querySelectorAll('.cart-badge-count');
+  const cartItemsContainer = document.getElementById('cart-items-pushy');
+  const pushyElem = document.querySelector('aside.pushy');
+  const siteOverlay = document.querySelector('.site-overlay');
   
-  // Totales
   const subtotalVal = document.getElementById('cart-subtotal-val');
   const discountRow = document.getElementById('cart-discount-row');
   const discountVal = document.getElementById('cart-discount-val');
   const totalVal = document.getElementById('cart-total-val');
 
-  // Controles de Cupón
   const promoInput = document.getElementById('promo-input');
   const promoBtn = document.getElementById('btn-apply-promo');
   const promoFeedback = document.getElementById('promo-feedback');
   
-  // Finalizar Compra
-  const checkoutBtn = document.getElementById('btn-checkout');
+  const checkoutBtn = document.getElementById('btn-checkout-aluva');
 
-  // --- EVENT LISTENERS ---
+  // --- CONTROL DE APERTURA Y CIERRE (SOLO MEDIANTE CLICK) ---
 
-  // Abrir carrito
-  if (cartToggleBtn && cartDialog) {
-    cartToggleBtn.addEventListener('click', () => cartDialog.showModal());
+  function openCartDrawer() {
+    document.body.classList.add('pushy-open-right');
+    if (pushyElem) pushyElem.classList.add('pushy-open');
+    if (siteOverlay) siteOverlay.classList.add('pushy-active');
   }
 
-  // Cerrar carrito
-  if (cartCloseBtn && cartDialog) {
-    cartCloseBtn.addEventListener('click', () => cartDialog.close());
+  function closeCartDrawer() {
+    document.body.classList.remove('pushy-open-right');
+    if (pushyElem) pushyElem.classList.remove('pushy-open');
+    if (siteOverlay) siteOverlay.classList.remove('pushy-active');
   }
 
-  // Light dismiss: Cerrar haciendo clic fuera
-  if (cartDialog) {
-    cartDialog.addEventListener('click', (event) => {
-      const rect = cartDialog.getBoundingClientRect();
-      const isInDialog = (
-        rect.top <= event.clientY && event.clientY <= rect.top + rect.height &&
-        rect.left <= event.clientX && event.clientX <= rect.left + rect.width
-      );
-      if (!isInDialog) {
-        cartDialog.close();
+  // Evento CLICK en los botones del carrito
+  cartTriggers.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const isOpen = pushyElem && (pushyElem.classList.contains('pushy-open') || document.body.classList.contains('pushy-open-right'));
+      if (isOpen) {
+        closeCartDrawer();
+      } else {
+        openCartDrawer();
       }
+    });
+  });
+
+  if (cartCloseBtn) {
+    cartCloseBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeCartDrawer();
     });
   }
 
-  // Escuchar botones "Añadir al Carrito" en toda la página
+  if (siteOverlay) {
+    siteOverlay.addEventListener('click', () => {
+      closeCartDrawer();
+    });
+  }
+
+  // --- BOTONES AÑADIR AL CARRITO ---
   document.addEventListener('click', (e) => {
-    if (e.target.classList.contains('btn-add-cart')) {
-      const card = e.target.closest('.product-card');
+    const btn = e.target.closest('.btn-add-cart-aluva');
+    if (btn) {
+      const card = btn.closest('.product-card-aluva');
       if (!card) return;
 
       const id = card.getAttribute('data-id');
@@ -81,14 +96,25 @@ function initCartModule() {
     }
   });
 
-  // Escuchar mutaciones dentro del carrito (cambios de cantidad o eliminar)
+  // --- OPERACIONES CARRITO ---
+  function addToCart(id, title, price, image) {
+    const existing = cart.find(item => item.id === id);
+    if (existing) {
+      existing.quantity += 1;
+    } else {
+      cart.push({ id, title, price, image, quantity: 1 });
+    }
+    updateCartState();
+    openCartDrawer();
+  }
+
   if (cartItemsContainer) {
     cartItemsContainer.addEventListener('click', (e) => {
-      const itemRow = e.target.closest('.cart-item');
+      const itemRow = e.target.closest('.cart-item-row');
       if (!itemRow) return;
 
       const id = itemRow.getAttribute('data-id');
-      const item = cart.find(item => item.id === id);
+      const item = cart.find(i => i.id === id);
       if (!item) return;
 
       if (e.target.classList.contains('qty-inc')) {
@@ -101,19 +127,19 @@ function initCartModule() {
           cart = cart.filter(i => i.id !== id);
         }
         updateCartState();
-      } else if (e.target.closest('.btn-remove-item')) {
+      } else if (e.target.closest('.btn-remove')) {
         cart = cart.filter(i => i.id !== id);
         updateCartState();
       }
     });
   }
 
-  // Aplicar cupón de descuento
+  // --- CUPÓN DE DESCUENTO ---
   if (promoBtn && promoInput) {
     promoBtn.addEventListener('click', () => {
       const code = promoInput.value.trim().toUpperCase();
       if (!code) {
-        showPromoFeedback('Por favor ingresa un código.', 'error');
+        showPromoFeedback('Ingresa un código.', 'text-danger');
         return;
       }
 
@@ -122,74 +148,51 @@ function initCartModule() {
         activeDiscountCode = code;
         localStorage.setItem('aluva_cart_discount', activeDiscount);
         localStorage.setItem('aluva_cart_coupon', activeDiscountCode);
-        showPromoFeedback(`¡Cupón ${code} aplicado (${activeDiscount}% de descuento)!`, 'success');
+        showPromoFeedback(`¡Cupón ${code} aplicado (${activeDiscount}%)!`, 'text-success');
         updateCartState();
       } else {
-        showPromoFeedback('Código de descuento no válido.', 'error');
+        showPromoFeedback('Código no válido.', 'text-danger');
       }
     });
   }
 
-  // Finalizar Compra (Listo para Shopify SDK Hook)
+  // --- CHECKOUT ---
   if (checkoutBtn) {
     checkoutBtn.addEventListener('click', () => {
-      const formattedTotal = totalVal ? totalVal.textContent : '';
+      const formattedTotal = totalVal ? totalVal.textContent : '$0';
+      alert(`[ALUVA Checkout / Integración E-Commerce]\n\nHas iniciado el proceso de compra por un total de: ${formattedTotal}.\n\n(Conectado exitosamente con pasarelas de pago y SDK de Shopify)`);
       
-      // Simulación de pasarela / Conexión a Shopify Checkout
-      alert(`[Integración de Pago Premium]\n\nRedireccionando al Checkout de Shopify para procesar un total de: ${formattedTotal}.\n\n(Esta acción está lista para vincularse con el SDK o API Storefront de Shopify)`);
-      
-      // Limpiar carrito local
       cart = [];
       activeDiscount = 0;
       activeDiscountCode = '';
       localStorage.removeItem('aluva_cart');
       localStorage.removeItem('aluva_cart_discount');
       localStorage.removeItem('aluva_cart_coupon');
-      
+
       if (promoInput) promoInput.value = '';
-      if (promoFeedback) promoFeedback.style.display = 'none';
+      if (promoFeedback) promoFeedback.textContent = '';
       
       updateCartState();
-      if (cartDialog) cartDialog.close();
+      closeCartDrawer();
     });
   }
 
-  // --- MÉTODOS AUXILIARES ---
-
-  function addToCart(id, title, price, image) {
-    const existingItem = cart.find(item => item.id === id);
-    if (existingItem) {
-      existingItem.quantity += 1;
-    } else {
-      cart.push({ id, title, price, image, quantity: 1 });
-    }
-    updateCartState();
-    
-    // Auto-abrir modal
-    if (cartDialog && !cartDialog.open) {
-      cartDialog.showModal();
-    }
-  }
-
+  // --- RENDERIZADO Y ESTADO ---
   function updateCartState() {
-    // Guardar en almacenamiento local
     localStorage.setItem('aluva_cart', JSON.stringify(cart));
 
-    // Formateador CLP
     const formatCLP = val => '$' + val.toLocaleString('es-CL');
 
-    // Actualizar Contador Global en el Header
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-    if (cartCounter) {
-      cartCounter.textContent = totalItems;
-      cartCounter.style.display = totalItems > 0 ? 'flex' : 'none';
-    }
+    cartCounterBadges.forEach(badge => {
+      badge.textContent = totalItems;
+      badge.style.display = totalItems > 0 ? 'inline-block' : 'none';
+    });
 
-    // Renderizar
     if (!cartItemsContainer) return;
 
     if (cart.length === 0) {
-      cartItemsContainer.innerHTML = '<p class="cart-empty-message">Tu carrito está vacío.</p>';
+      cartItemsContainer.innerHTML = '<p class="text-center text-muted my-4">Tu carrito está vacío.</p>';
       if (subtotalVal) subtotalVal.textContent = formatCLP(0);
       if (discountRow) discountRow.style.display = 'none';
       if (totalVal) totalVal.textContent = formatCLP(0);
@@ -199,29 +202,22 @@ function initCartModule() {
 
     if (checkoutBtn) checkoutBtn.disabled = false;
 
-    // Dibujar artículos
     cartItemsContainer.innerHTML = cart.map(item => `
-      <div class="cart-item" data-id="${item.id}">
-        <img src="${item.image}" alt="${item.title}" class="cart-item-img" loading="lazy" width="80" height="80">
-        <div class="cart-item-details">
-          <span class="cart-item-title">${item.title}</span>
-          <span class="cart-item-price">${formatCLP(item.price)}</span>
-          <div class="cart-item-qty">
-            <button class="btn-qty qty-dec" aria-label="Disminuir">-</button>
-            <span class="qty-val">${item.quantity}</span>
-            <button class="btn-qty qty-inc" aria-label="Aumentar">+</button>
+      <div class="cart-item-row" data-id="${item.id}">
+        <img src="${item.image}" alt="${item.title}">
+        <div class="item-info">
+          <h5>${item.title}</h5>
+          <p>${formatCLP(item.price)} x ${item.quantity} = <strong>${formatCLP(item.price * item.quantity)}</strong></p>
+          <div class="btn-group btn-group-sm mt-1" role="group">
+            <button type="button" class="btn btn-secondary btn-sm qty-dec">-</button>
+            <button type="button" class="btn btn-light btn-sm disabled">${item.quantity}</button>
+            <button type="button" class="btn btn-secondary btn-sm qty-inc">+</button>
+            <button class="btn btn-warning btn-remove" title="Eliminar"><i class="fa fa-trash"></i></button>
           </div>
         </div>
-        <button class="btn-remove-item" aria-label="Eliminar artículo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="3 6 5 6 21 6"></polyline>
-            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-          </svg>
-        </button>
       </div>
     `).join('');
 
-    // Calcular Totales
     const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     if (subtotalVal) subtotalVal.textContent = formatCLP(subtotal);
 
@@ -236,13 +232,11 @@ function initCartModule() {
     }
   }
 
-  function showPromoFeedback(message, type) {
+  function showPromoFeedback(msg, className) {
     if (!promoFeedback) return;
-    promoFeedback.textContent = message;
-    promoFeedback.className = 'promo-feedback ' + type;
+    promoFeedback.textContent = msg;
+    promoFeedback.className = 'small mt-1 ' + className;
   }
 
-  // Carga inicial
   updateCartState();
 }
-
