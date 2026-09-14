@@ -1,96 +1,208 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Consulta el estado de tu envío con Starken, Chilexpress y más en ALUVA.">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
-  
-  <title>Seguimiento de Envío - ALUVA</title>
-  
-  <!-- ── CAPA DE ESTILOS ── -->
-  <link rel="stylesheet" href="src/styles/variables.css">
-  <link rel="stylesheet" href="src/styles/reset.css">
-  <link rel="stylesheet" href="src/styles/main.css">
-  <link rel="stylesheet" href="src/styles/components/header.css">
-  <link rel="stylesheet" href="src/styles/components/tracking.css">
-  <link rel="stylesheet" href="src/styles/components/footer.css">
-
-  <!-- ── CAPA DE JAVASCRIPT ── -->
-  <script src="src/utils/security.js" defer></script>
-  <script src="src/utils/sanitizer.js" defer></script>
-  
-  <!-- Componentes -->
-  <script src="src/components/Header.js" defer></script>
-  <script src="src/services/trackingService.js" defer></script>
-  <script src="src/components/Tracking.js" defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Módulo de seguimiento nacional de ALUVA. Ingresa tu número de envío para Starken, Chilexpress, Correos de Chile o UPS.">
+    <title>Seguimiento de Envíos - ALUVA</title>
+    
+    <!-- Template & Plugins CSS -->
+    <link href="css/plugins/plugins.css" rel="stylesheet">
+    <link href="css/shop-style.css" rel="stylesheet">
+    
+    <!-- ALUVA Custom Theme Overrides -->
+    <link href="css/custom-aluva.css" rel="stylesheet">
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="logo-container">
-      <img src="src/assets/images/ALUVA_BWLOGOFLAT.bmp" alt="Logo ALUVA" width="150" height="50">
-    </div>
-    
-    <nav class="nav-links" aria-label="Menú principal de navegación">
-      <a href="index.html">Inicio</a>
-      <a href="index.html#nosotros">Quiénes Somos</a>
-      <a href="catalogo.html">Catálogo</a>
-      <a href="seguimiento.html">Seguimiento</a>
-      <a href="index.html#contacto">Contacto</a>
-    </nav>
-    
-    <div class="header-actions">
-      <!-- Icono de perfil o enlace (no carrito ya que el seguimiento no lo requiere) -->
-      <button id="nav-hamburger" class="nav-hamburger" aria-expanded="false" aria-label="Abrir menú">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
+    <div id="preloader">
+        <div id="preloader-inner"></div>
+    </div><!--/preloader-->
 
-  <nav id="nav-mobile-overlay" class="nav-mobile-overlay" aria-hidden="true">
-    <a href="index.html">Inicio</a>
-    <a href="index.html#nosotros">Quiénes Somos</a>
-    <a href="catalogo.html">Catálogo</a>
-    <a href="seguimiento.html">Seguimiento</a>
-    <a href="index.html#contacto">Contacto</a>
-  </nav>
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+    <a href="https://wa.me/56912345678?text=Hola%20ALUVA,%20quisiera%20consultar%20sobre%20el%20estado%20de%20mi%20env%C3%ADo" target="_blank" rel="noopener" class="whatsapp-float-btn" title="Cotiza por WhatsApp">
+        <svg viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+        <span>Cotizar por WhatsApp</span>
+    </a>
 
-  <main>
-    <section class="container" style="padding-block: calc(var(--section-padding-v) + 2rem);">
-      <div class="tracking-wrapper">
-        <h1 class="section-title">Rastreo de Pedido</h1>
-        <p class="tracking-intro">
-          Ingresa el código de seguimiento provisto en tu correo de confirmación para ver el estado de tu envío (soporte para Starken, Chilexpress, Correos de Chile, etc).
-        </p>
-
-        <form id="tracking-form" class="tracking-form">
-          <input type="text" id="tracking-input" class="tracking-input" placeholder="Ej: STK982334" required aria-label="Código de seguimiento">
-          <button type="submit" class="btn-track">Buscar Envío</button>
-        </form>
-
-        <!-- Contenedor del resultado administrado por JS -->
-        <div id="tracking-result-card" class="tracking-result">
-          <div class="tracking-result-header">
-            <span id="res-carrier" class="tracking-carrier"></span>
-            <span id="res-code" class="tracking-code"></span>
-          </div>
-          <div id="res-status" class="tracking-status"></div>
-          
-          <div id="res-steps" class="tracking-steps">
-            <!-- Pasos renderizados por Tracking.js -->
-          </div>
+    <!-- TOP BAR CORPORATIVA -->
+    <div class="top-bar clearfix light">
+        <div class="container">
+            <div class="float-sm-right">
+                <ul class="top-social-list">
+                    <li>
+                        <a href="https://www.instagram.com/aluva.outdoor" target="_blank" rel="noopener" class="top-social-circle social-instagram" title="Instagram">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.tiktok.com/@aluva.outdoor" target="_blank" rel="noopener" class="top-social-circle social-tiktok" title="TikTok">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 1 1-2.896-2.896c.244 0 .48.03.707.087V9.387a6.326 6.326 0 0 0-.707-.04A6.34 6.34 0 1 0 15.818 15.68V8.92a8.212 8.212 0 0 0 4.771 1.516V7.001a4.832 4.832 0 0 1-1.000-.315z"/>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="float-sm-left">
+                <ul class="top-contact-links">
+                    <li>
+                        <a href="mailto:aluva.seguridad@gmail.com" class="top-link-email">
+                            <i class="fa fa-envelope text-warning"></i>
+                            <span>aluva.seguridad@gmail.com</span>
+                        </a>
+                    </li>
+                    <li class="top-location-item">
+                        <i class="fa fa-map-marker text-warning"></i>
+                        <span>Tornamesa 42, Los Andes, Valparaíso, Chile</span>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
+    </div>
+    <!-- END TOP BAR -->
+
+    <!-- CARRITO OFF-CANVAS ("TU PEDIDO") -->
+    <aside class="pushy pushy-right">
+        <div class="cart-header-title">
+            <h3><i class="fa fa-shopping-bag text-warning"></i> Tu Pedido</h3>
+            <span class="pushy-link-close" id="cart-close-pushy"><i class="fa fa-times"></i></span>
+        </div>
+        
+        <div class="cart-body" id="cart-items-pushy">
+            <!-- Artículos inyectados por cart.js -->
+        </div>
+
+        <div class="cart-footer-box">
+            <div class="coupon-group">
+                <input type="text" id="promo-input" placeholder="Cupón (ej: ALUVA10)">
+                <button type="button" id="btn-apply-promo">Aplicar</button>
+            </div>
+            <div id="promo-feedback"></div>
+
+            <div class="cart-totals-summary">
+                <div>
+                    <span>Subtotal:</span>
+                    <strong id="cart-subtotal-val">$0</strong>
+                </div>
+                <div id="cart-discount-row" style="display: none;">
+                    <span class="text-success">Descuento:</span>
+                    <strong id="cart-discount-val" class="text-success">-$0</strong>
+                </div>
+                <div class="grand-total-line">
+                    <span>Total Final:</span>
+                    <strong id="cart-total-val">$0</strong>
+                </div>
+            </div>
+
+            <button type="button" class="btn-checkout-aluva" id="btn-checkout-aluva">Finalizar Compra</button>
+        </div>
+    </aside>
+    <div class="site-overlay"></div>
+
+    <!-- NAVBAR PRINCIPAL DE NAVEGACIÓN -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-faded">
+        <div class="container">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/banners/ALUVA_BWLOGOFLAT.bmp" alt="ALUVA Logo Oficial" class="official-brand-logo">
+            </a>
+
+            <div id="navbarNavDropdown" class="navbar-collapse collapse">
+                <ul class="navbar-nav ml-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#nosotros">Quiénes Somos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#equipo">Equipo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="catalogo.html">Catálogo 2026</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="seguimiento.html">Seguimiento</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contacto">Contacto</a>
+                    </li>
+                    <li class="nav-item ml-lg-3 nav-item-cart">
+                        <button type="button" class="cart-trigger-btn" aria-label="Ver carrito Tu Pedido">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span class="cart-badge-count">0</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVBAR -->
+
+    <!-- PAGE HEADER -->
+    <section class="py-4 bg-dark text-white">
+        <div class="container text-center">
+            <h1 class="font-weight-bold text-uppercase mb-1 text-white">Rastreo Logístico de Pedidos</h1>
+            <p class="text-light mb-0 small">Seguimiento en tiempo real de tus envíos a todo Chile</p>
+        </div>
     </section>
-  </main>
 
-  <!-- FOOTER -->
-  <footer>
-    <img src="src/assets/images/ALUVA_BWLOGOFLAT.bmp" alt="Timbre ALUVA" class="footer-logo" loading="lazy" width="90" height="90">
-    <div class="footer-copy">&copy; 2026 ALUVA. Todos los derechos reservados.</div>
-  </footer>
+    <main class="py-5">
+        <div class="container">
+            <div class="text-center mb-5 max-700 mx-auto">
+                <h2 class="font-weight-bold text-uppercase mb-2">Consulta tu Código de Envío</h2>
+                <div class="bg-warning mx-auto mb-3" style="height: 3px; width: 60px;"></div>
+                <p class="text-muted">
+                    Consulta el estado de tu despacho en tiempo real. Sistema integrado con <strong>Starken</strong> (ej: <code>STK101</code>), <strong>Chilexpress</strong> (ej: <code>CHX202</code>), <strong>Correos de Chile</strong> (ej: <code>COR303</code>) y <strong>UPS</strong> (ej: <code>UPS404</code>).
+                </p>
+            </div>
 
+            <!-- CONTENEDOR DE SEGUIMIENTO -->
+            <div class="tracking-card-aluva">
+                <form id="tracking-form" class="tracking-form-group">
+                    <input type="text" id="tracking-input" placeholder="Ingresa tu número de seguimiento (ej: STK48293)" required>
+                    <button type="submit">Buscar</button>
+                </form>
+
+                <!-- RESULTADO DINÁMICO (INYECTADO VÍA JS) -->
+                <div id="tracking-result-box" class="tracking-result-box">
+                    <!-- Inyectado por tracking.js -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER CORPORATIVO -->
+    <footer class="footer-aluva">
+        <div class="container text-center">
+            <img src="assets/images/banners/ALUVA_WBLOGOFLAT.bmp" alt="Timbre Oficial ALUVA" class="footer-timbre-img mb-3">
+            <ul class="list-inline mb-3">
+                <li class="list-inline-item mr-3"><a href="index.html#nosotros">Quiénes Somos</a></li>
+                <li class="list-inline-item mr-3"><a href="index.html#equipo">Equipo</a></li>
+                <li class="list-inline-item mr-3"><a href="catalogo.html">Catálogo</a></li>
+                <li class="list-inline-item mr-3"><a href="seguimiento.html">Seguimiento</a></li>
+                <li class="list-inline-item mr-3"><a href="https://www.instagram.com/aluva.outdoor" target="_blank" rel="noopener">Instagram</a></li>
+                <li class="list-inline-item"><a href="https://www.tiktok.com/@aluva.outdoor" target="_blank" rel="noopener">TikTok</a></li>
+            </ul>
+            <p class="small mb-0">&copy; 2026 ALUVA - Ropa y Elementos de Protección Personal. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- TEMPLATE & PLUGINS JS -->
+    <script src="js/plugins/plugins.js"></script>
+    <script src="js/assan.custom.js"></script>
+
+    <!-- MÓDULOS DE LÓGICA PROPIA -->
+    <script src="js/cart.js"></script>
+    <script src="js/tracking.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

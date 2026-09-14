@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="ALUVA - Ropa de trabajo industrial premium, vestuario corporativo personalizado y elementos de protección personal (EPP) de alta calidad.">
+    <meta name="description" content="ALUVA - Ropa de trabajo industrial premium, vestuario corporativo personalizado y elementos de protección personal (EPP).">
     <title>ALUVA - Indumentaria Técnica y Vestuario Corporativo Premium</title>
     
     <!-- Template & Plugins CSS -->
@@ -13,191 +13,8 @@
     <link rel="stylesheet" type="text/css" href="revolution/css/navigation.css">
     <link href="css/shop-style.css" rel="stylesheet">
     
-    <!-- ALUVA Custom Theme Overrides (Monochromatic Identity) -->
+    <!-- ALUVA Custom Theme Overrides -->
     <link href="css/custom-aluva.css" rel="stylesheet">
-
-    <!-- EMBEDDED MONOCHROMATIC BRAND IDENTITY & PARALLAX OVERRIDE -->
-    <style>
-        :root {
-            --color-bg-base: #FAFAFA;       /* Snow White */
-            --color-bg-dark: #1A1A1A;       /* Dark Graphite Black */
-            --color-text-primary: #1A1A1A;  /* Dark Graphite Black */
-            --color-text-secondary: #4A5568;/* Strong Cement Grey */
-            --color-border: #4A5568;        /* Strong Cement Grey */
-            --color-white: #FFFFFF;         /* Pure White */
-            --color-light-gray: #E2E8F0;    /* Light Grey for dividers */
-            --font-family: 'Helvetica Neue', Arial, sans-serif;
-        }
-
-        body {
-            background-color: #FAFAFA !important;
-            color: #1A1A1A !important;
-            font-family: var(--font-family);
-        }
-
-        /* Top Bar Override */
-        .top-bar, .top-bar.light {
-            background-color: #1A1A1A !important;
-            color: #FFFFFF !important;
-            border-bottom: 1px solid #4A5568 !important;
-        }
-        .top-bar a, .top-bar span, .top-bar i, .top-bar li {
-            color: #FFFFFF !important;
-        }
-        .top-social-circle {
-            background-color: transparent !important;
-            border: 1px solid #4A5568 !important;
-            color: #FFFFFF !important;
-        }
-        .top-social-circle:hover {
-            background-color: #FFFFFF !important;
-            color: #1A1A1A !important;
-            border-color: #FFFFFF !important;
-        }
-
-        /* Navbar Override */
-        .navbar, .navbar-light, .bg-faded {
-            background-color: #FAFAFA !important;
-            border-bottom: 1px solid #E2E8F0 !important;
-        }
-        .navbar-light .navbar-nav .nav-link {
-            color: #1A1A1A !important;
-            font-weight: 700 !important;
-            letter-spacing: 0.05em !important;
-            text-transform: uppercase !important;
-        }
-        .navbar-light .navbar-nav .nav-link:hover,
-        .navbar-light .navbar-nav .nav-item.active .nav-link {
-            color: #4A5568 !important;
-        }
-        .cart-trigger-btn {
-            color: #1A1A1A !important;
-        }
-        .cart-badge-count {
-            background-color: #1A1A1A !important;
-            color: #FFFFFF !important;
-            border: 1px solid #FFFFFF !important;
-        }
-
-        /* Parallax Hero Banner Feature */
-        .hero-banner-parallax {
-            position: relative;
-            min-height: 520px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #FFFFFF !important;
-            background-image: linear-gradient(rgba(26, 26, 26, 0.78), rgba(26, 26, 26, 0.78)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=80');
-            background-attachment: fixed !important;
-            background-position: center center !important;
-            background-repeat: no-repeat !important;
-            background-size: cover !important;
-            border-bottom: 1px solid #4A5568;
-        }
-        .hero-banner-parallax h1 {
-            color: #FFFFFF !important;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-        }
-        .hero-banner-parallax p.lead {
-            color: #E2E8F0 !important;
-            max-width: 720px;
-            margin: 0 auto;
-        }
-
-        /* Neutralizing generic template colors (Yellow/Amber/Navy) */
-        .text-warning, .ti-shield.text-warning, .ti-user.text-warning, .ti-truck.text-warning, i.text-warning {
-            color: #1A1A1A !important;
-        }
-        .bg-warning {
-            background-color: #1A1A1A !important;
-        }
-        .badge-warning {
-            background-color: #1A1A1A !important;
-            color: #FFFFFF !important;
-            border: 1px solid #E2E8F0 !important;
-            border-radius: 0 !important;
-        }
-        .btn-warning {
-            background-color: #1A1A1A !important;
-            color: #FFFFFF !important;
-            border: 1px solid #1A1A1A !important;
-            border-radius: 0 !important;
-            text-transform: uppercase !important;
-            font-weight: 700 !important;
-            letter-spacing: 0.06em !important;
-        }
-        .btn-warning:hover {
-            background-color: transparent !important;
-            color: #1A1A1A !important;
-            border-color: #1A1A1A !important;
-        }
-        .btn-outline-dark, .btn-outline-light {
-            border-radius: 0 !important;
-            text-transform: uppercase !important;
-            font-weight: 700 !important;
-            letter-spacing: 0.06em !important;
-        }
-
-        /* Section Dividers & Backgrounds */
-        .aluva-divider {
-            height: 2px !important;
-            width: 60px !important;
-            background-color: #1A1A1A !important;
-            margin: 1rem auto 1.5rem !important;
-        }
-        section.bg-light, .bg-light {
-            background-color: #FAFAFA !important;
-        }
-        section {
-            border-bottom: 1px solid #E2E8F0;
-        }
-
-        /* Pure White Cards on Snow White */
-        .card-monochrome, .info-card-aluva, .team-card-aluva, .product-card-aluva, .testimonial-card-aluva, .contact-card-aluva {
-            background-color: #FFFFFF !important;
-            border: 1px solid #E2E8F0 !important;
-            border-radius: 0 !important;
-        }
-
-        /* Secondary text & borders */
-        .text-muted, .text-secondary {
-            color: #4A5568 !important;
-        }
-        .border {
-            border-color: #E2E8F0 !important;
-        }
-
-        /* Footer Monochromatic */
-        .footer-aluva {
-            background-color: #1A1A1A !important;
-            color: #FFFFFF !important;
-            border-top: 1px solid #4A5568 !important;
-        }
-        .footer-aluva a {
-            color: #FFFFFF !important;
-        }
-        .footer-aluva a:hover {
-            color: #E2E8F0 !important;
-        }
-        .footer-aluva p {
-            color: rgba(255, 255, 255, 0.6) !important;
-        }
-
-        /* Floating WhatsApp Monochromatic / High Contrast */
-        .whatsapp-float-btn {
-            background-color: #1A1A1A !important;
-            color: #FFFFFF !important;
-            border: 1px solid #4A5568 !important;
-        }
-        .whatsapp-float-btn:hover {
-            background-color: #25d366 !important;
-            border-color: #25d366 !important;
-            color: #FFFFFF !important;
-        }
-    </style>
 </head>
 <body>
 
@@ -219,14 +36,14 @@
             <div class="float-sm-right">
                 <ul class="top-social-list">
                     <li>
-                        <a href="https://www.instagram.com/aluva.outdoor" target="_blank" rel="noopener" class="top-social-circle social-instagram" title="Instagram ALUVA">
+                        <a href="https://www.instagram.com/aluva.outdoor" target="_blank" rel="noopener" class="top-social-circle social-instagram" title="Instagram">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                             </svg>
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.tiktok.com/@aluva.outdoor" target="_blank" rel="noopener" class="top-social-circle social-tiktok" title="TikTok ALUVA">
+                        <a href="https://www.tiktok.com/@aluva.outdoor" target="_blank" rel="noopener" class="top-social-circle social-tiktok" title="TikTok">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 1 1-2.896-2.896c.244 0 .48.03.707.087V9.387a6.326 6.326 0 0 0-.707-.04A6.34 6.34 0 1 0 15.818 15.68V8.92a8.212 8.212 0 0 0 4.771 1.516V7.001a4.832 4.832 0 0 1-1.000-.315z"/>
                             </svg>
@@ -238,12 +55,12 @@
                 <ul class="top-contact-links">
                     <li>
                         <a href="mailto:aluva.seguridad@gmail.com" class="top-link-email">
-                            <i class="fa fa-envelope"></i>
+                            <i class="fa fa-envelope text-warning"></i>
                             <span>aluva.seguridad@gmail.com</span>
                         </a>
                     </li>
                     <li class="top-location-item">
-                        <i class="fa fa-map-marker"></i>
+                        <i class="fa fa-map-marker text-warning"></i>
                         <span>Tornamesa 42, Los Andes, Valparaíso, Chile</span>
                     </li>
                 </ul>
@@ -255,37 +72,37 @@
     <!-- CARRITO OFF-CANVAS ("TU PEDIDO") -->
     <aside class="pushy pushy-right">
         <div class="cart-header-title">
-            <h3><i class="fa fa-shopping-bag mr-2"></i> Tu Pedido</h3>
+            <h3><i class="fa fa-shopping-bag text-warning"></i> Tu Pedido</h3>
             <span class="pushy-link-close" id="cart-close-pushy"><i class="fa fa-times"></i></span>
         </div>
         
         <div class="cart-body" id="cart-items-pushy">
-            <!-- Artículos inyectados dinámicamente por cart.js -->
+            <!-- Artículos inyectados por cart.js -->
         </div>
 
-        <div class="cart-footer-box p-3">
-            <div class="coupon-group mb-3 d-flex">
-                <input type="text" id="promo-input" class="form-control" placeholder="Cupón (ej: ALUVA10)">
-                <button type="button" id="btn-apply-promo" class="btn btn-warning ml-2">Aplicar</button>
+        <div class="cart-footer-box">
+            <div class="coupon-group">
+                <input type="text" id="promo-input" placeholder="Cupón (ej: ALUVA10)">
+                <button type="button" id="btn-apply-promo">Aplicar</button>
             </div>
-            <div id="promo-feedback" class="small mb-3"></div>
+            <div id="promo-feedback"></div>
 
-            <div class="cart-totals-summary border-top pt-3 mb-3">
-                <div class="d-flex justify-content-between mb-1">
+            <div class="cart-totals-summary">
+                <div>
                     <span>Subtotal:</span>
                     <strong id="cart-subtotal-val">$0</strong>
                 </div>
-                <div id="cart-discount-row" class="d-flex justify-content-between mb-1" style="display: none;">
-                    <span>Descuento:</span>
-                    <strong id="cart-discount-val">-$0</strong>
+                <div id="cart-discount-row" style="display: none;">
+                    <span class="text-success">Descuento:</span>
+                    <strong id="cart-discount-val" class="text-success">-$0</strong>
                 </div>
-                <div class="grand-total-line d-flex justify-content-between border-top pt-2 mt-2">
-                    <span class="font-weight-bold">Total Final:</span>
-                    <strong id="cart-total-val" class="font-weight-bold">$0</strong>
+                <div class="grand-total-line">
+                    <span>Total Final:</span>
+                    <strong id="cart-total-val">$0</strong>
                 </div>
             </div>
 
-            <button type="button" class="btn btn-warning btn-block" id="btn-checkout-aluva">Finalizar Compra</button>
+            <button type="button" class="btn-checkout-aluva" id="btn-checkout-aluva">Finalizar Compra</button>
         </div>
     </aside>
     <div class="site-overlay"></div>
@@ -297,14 +114,14 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             
-            <a class="navbar-brand" href="index.html">
-                <img src="assets/images/LOGO_ALUVA.jpeg" alt="ALUVA - Indumentaria Técnica Premium" class="official-brand-logo">
+            <a class="navbar-brand" href="#hero-banner">
+                <img src="assets/images/banners/ALUVA_BWLOGOFLAT.bmp" alt="ALUVA Logo Oficial" class="official-brand-logo">
             </a>
 
             <div id="navbarNavDropdown" class="navbar-collapse collapse">
                 <ul class="navbar-nav ml-auto align-items-center">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Inicio</a>
+                        <a class="nav-link" href="#hero-banner">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#nosotros">Quiénes Somos</a>
@@ -333,51 +150,45 @@
     </nav>
     <!-- END NAVBAR -->
 
-    <!-- HERO BANNER (PARALLAX SCROLLING EFFECT) -->
-    <section class="hero-banner-parallax py-5 text-center position-relative">
+    <!-- HERO BANNER (EFECTO PARALLAX) -->
+    <section id="hero-banner" class="hero-parallax-banner py-5 text-white text-center position-relative">
         <div class="container py-4">
-            <span class="badge badge-warning text-uppercase px-3 py-2 mb-3" style="letter-spacing: 2px;">Catálogo Oficial 2026 | Indumentaria Industrial</span>
-            <h1 class="display-4 font-weight-bold text-white mb-3">ALUVA: Indumentaria Técnica Premium</h1>
+            <span class="badge badge-warning text-uppercase px-3 py-2 mb-3" style="letter-spacing: 1px;">Catálogo Oficial 2026 | Indumentaria Industrial</span>
+            <h1 class="display-4 font-weight-bold text-white mb-3">ALUVA: Indumentaria Técnica Premium y EPP</h1>
             <p class="lead text-light max-600 mx-auto mb-4">
                 Diseño y confección industrial con tecnología textil avanzada para la faena extrema y el vestuario corporativo.
             </p>
             <div>
-                <a href="catalogo.html" class="btn btn-aluva-solid btn-lg mr-2 mb-2">Explorar Catálogo Completo</a>
-                <a href="https://wa.me/56912345678?text=Hola%20ALUVA,%20quisiera%20cotizar%20prendas%20personalizadas" target="_blank" rel="noopener" class="btn btn-aluva-outline btn-lg mb-2">Cotiza por WhatsApp &rarr;</a>
+                <a href="catalogo.html" class="btn btn-warning btn-lg text-dark font-weight-bold text-uppercase px-4 mr-2 mb-2">Explorar Catálogo Completo</a>
+                <a href="https://wa.me/56912345678?text=Hola%20ALUVA,%20quisiera%20personalizar%20mis%20prendas" target="_blank" rel="noopener" class="btn btn-outline-light btn-lg text-uppercase px-4 mb-2">Diseña por WhatsApp &rarr;</a>
             </div>
         </div>
     </section>
     <!-- END HERO BANNER -->
 
-    <!-- PILARES / PROPUESTA DE VALOR -->
-    <section class="py-5 bg-light">
+    <!-- PILARES / CARACTERÍSTICAS (CSS GRID & FLEXBOX) -->
+    <section id="pilares-section" class="py-5 bg-light">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4 mb-md-0">
-                    <div class="media align-items-center p-4 bg-white border shadow-sm h-100">
-                        <i class="ti-shield display-4 mr-3 text-dark"></i>
-                        <div class="media-body">
-                            <h5 class="mt-0 font-weight-bold">Máxima Durabilidad</h5>
-                            <p class="mb-0 text-muted small">Telas antidesgarro Ripstop y costuras reforzadas de alta exigencia mecánica.</p>
-                        </div>
+            <div class="pillars-grid-modern" id="pilares-grid">
+                <div class="pilar-card-aluva">
+                    <i class="ti-shield text-warning"></i>
+                    <div>
+                        <h5 class="mt-0 font-weight-bold mb-1">Máxima Durabilidad</h5>
+                        <p class="mb-0 text-muted small">Telas antidesgarro Ripstop y costuras reforzadas para faena pesada.</p>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4 mb-md-0">
-                    <div class="media align-items-center p-4 bg-white border shadow-sm h-100">
-                        <i class="ti-user display-4 mr-3 text-dark"></i>
-                        <div class="media-body">
-                            <h5 class="mt-0 font-weight-bold">Personalización Corporativa</h5>
-                            <p class="mb-0 text-muted small">Bordado y estampado industrial de alta precisión con la identidad de tu empresa.</p>
-                        </div>
+                <div class="pilar-card-aluva">
+                    <i class="ti-user text-warning"></i>
+                    <div>
+                        <h5 class="mt-0 font-weight-bold mb-1">Personalización de Marca</h5>
+                        <p class="mb-0 text-muted small">Bordado y estampado corporativo con el logotipo de tu empresa.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="media align-items-center p-4 bg-white border shadow-sm h-100">
-                        <i class="ti-truck display-4 mr-3 text-dark"></i>
-                        <div class="media-body">
-                            <h5 class="mt-0 font-weight-bold">Despacho Nacional</h5>
-                            <p class="mb-0 text-muted small">Envíos rastreables en tiempo real vía Starken, Chilexpress, Correos de Chile y UPS.</p>
-                        </div>
+                <div class="pilar-card-aluva">
+                    <i class="ti-truck text-warning"></i>
+                    <div>
+                        <h5 class="mt-0 font-weight-bold mb-1">Despacho Nacional</h5>
+                        <p class="mb-0 text-muted small">Envíos rastreables en tiempo real vía Starken, Chilexpress y UPS.</p>
                     </div>
                 </div>
             </div>
@@ -390,26 +201,26 @@
             <div class="container">
                 <div class="text-center mb-5">
                     <h2 class="font-weight-bold text-uppercase mb-2">Quiénes Somos</h2>
-                    <div class="aluva-divider"></div>
-                    <p class="text-muted mt-3 max-700 mx-auto" style="max-width: 800px; font-size: 1.05rem;">
-                        En <strong>ALUVA</strong>, nos especializamos en el diseño, confección y distribución de ropa de trabajo, vestuario corporativo y Equipos de Protección Personal (EPP). Nacimos para responder a las exigencias reales del sector industrial y faenero chileno, combinando durabilidad, seguridad y comodidad con un alto estándar de personalización para empresas que proyectan excelencia en su imagen corporativa.
+                    <div class="bg-warning mx-auto" style="height: 3px; width: 60px;"></div>
+                    <p class="text-muted mt-3 max-700 mx-auto">
+                        En <strong>ALUVA</strong>, nos especializamos en el diseño, confección y distribución de ropa de trabajo, vestuario corporativo y Equipos de Protección Personal (EPP). Nacimos para responder a las exigencias reales del sector faenero e industrial chileno, combinando durabilidad, seguridad y comodidad con un alto estándar de personalización.
                     </p>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6 mb-4">
-                        <div class="info-card-aluva bg-white p-4 border shadow-sm h-100" style="border-left: 4px solid #1A1A1A !important;">
-                            <h4 class="font-weight-bold text-uppercase mb-3"><i class="fa fa-bullseye mr-2"></i> Misión</h4>
-                            <p class="text-secondary mb-0" style="line-height: 1.7;">
-                                Proveer vestuario técnico, EPP y prendas corporativas de alta durabilidad, diseñadas para resistir las condiciones más exigentes del trabajo faenero y la vida diaria, integrando tecnología textil y personalización de marca en cada producto.
+                        <div class="info-card-aluva">
+                            <h4 class="font-weight-bold text-uppercase mb-3"><i class="fa fa-bullseye text-warning mr-2"></i> Misión</h4>
+                            <p class="text-secondary mb-0">
+                                Proveer vestuario técnico, EPP y prendas corporativas de alta durabilidad y funcionalidad, diseñadas para resistir las condiciones más exigentes del trabajo faenero y la vida diaria, integrando personalización de marca y tecnología textil en cada producto.
                             </p>
                         </div>
                     </div>
                     <div class="col-md-6 mb-4">
-                        <div class="info-card-aluva bg-white p-4 border shadow-sm h-100" style="border-left: 4px solid #1A1A1A !important;">
-                            <h4 class="font-weight-bold text-uppercase mb-3"><i class="fa fa-eye mr-2"></i> Visión</h4>
-                            <p class="text-secondary mb-0" style="line-height: 1.7;">
-                                Ser el referente y aliado estratégico clave en la confección y suministro de indumentaria industrial, EPP y vestuario personalizado, destacados por la innovación constante en materiales, el diseño funcional a medida y el compromiso absoluto con el bienestar y seguridad de nuestros usuarios en todo el territorio nacional.
+                        <div class="info-card-aluva">
+                            <h4 class="font-weight-bold text-uppercase mb-3"><i class="fa fa-eye text-warning mr-2"></i> Visión</h4>
+                            <p class="text-secondary mb-0">
+                                Ser el referente y aliado estratégico clave en la confección y suministro de ropa industrial, EPP y vestuario personalizado, destacados por la innovación constante en materiales, el diseño a medida y el compromiso absoluto con la seguridad y bienestar de nuestros usuarios en todo el territorio chileno.
                             </p>
                         </div>
                     </div>
@@ -418,57 +229,47 @@
         </section>
 
         <!-- SECCIÓN EQUIPO DE DESARROLLO Y GESTIÓN ALUVA -->
-        <section id="equipo" class="py-5 bg-light">
+        <section id="equipo" class="py-5" style="background-color: #f8fafc; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
             <div class="container">
                 <div class="text-center mb-5">
                     <h2 class="font-weight-bold text-uppercase mb-2">Equipo de Desarrollo y Gestión</h2>
-                    <div class="aluva-divider"></div>
-                    <p class="text-muted mt-2">Profesionales detrás del diseño técnico, arquitectura y aseguramiento de calidad de ALUVA</p>
+                    <div class="bg-warning mx-auto" style="height: 3px; width: 60px;"></div>
+                    <p class="text-muted mt-3 max-700 mx-auto">
+                        Profesionales a cargo de la arquitectura frontend, gestión de requerimientos, diseño y aseguramiento de calidad del proyecto ALUVA.
+                    </p>
                 </div>
 
-                <div class="row">
-                    <!-- Integrante 1 -->
-                    <div class="col-lg-3 col-sm-6 mb-4">
-                        <div class="team-card-aluva">
-                            <div class="team-avatar-placeholder">SD</div>
-                            <h5 class="team-name">Sebastián Donoso</h5>
-                            <span class="team-role">Desarrollador y Maquetador Principal</span>
-                        </div>
+                <div class="team-grid-modern" id="team-grid">
+                    <div class="team-card-aluva">
+                        <div class="team-avatar-placeholder">SD</div>
+                        <h5 class="team-name">Sebastián Donoso</h5>
+                        <span class="team-role">Desarrollador y Maquetador Principal</span>
                     </div>
-                    <!-- Integrante 2 -->
-                    <div class="col-lg-3 col-sm-6 mb-4">
-                        <div class="team-card-aluva">
-                            <div class="team-avatar-placeholder">BM</div>
-                            <h5 class="team-name">Brunno Mori Campos</h5>
-                            <span class="team-role">Analista de Requerimientos</span>
-                        </div>
+                    <div class="team-card-aluva">
+                        <div class="team-avatar-placeholder">BM</div>
+                        <h5 class="team-name">Brunno Mori Campos</h5>
+                        <span class="team-role">Desarrollador y Analista de Requerimientos</span>
                     </div>
-                    <!-- Integrante 3 -->
-                    <div class="col-lg-3 col-sm-6 mb-4">
-                        <div class="team-card-aluva">
-                            <div class="team-avatar-placeholder">HG</div>
-                            <h5 class="team-name">Hugo González Alarcón</h5>
-                            <span class="team-role">Encargado de Contenidos y Gráfica</span>
-                        </div>
+                    <div class="team-card-aluva">
+                        <div class="team-avatar-placeholder">HG</div>
+                        <h5 class="team-name">Hugo González Alarcón</h5>
+                        <span class="team-role">Desarrollador, Encargado de Contenidos y Gráfica</span>
                     </div>
-                    <!-- Integrante 4 -->
-                    <div class="col-lg-3 col-sm-6 mb-4">
-                        <div class="team-card-aluva">
-                            <div class="team-avatar-placeholder">VM</div>
-                            <h5 class="team-name">Víctor Maureira Flores</h5>
-                            <span class="team-role">Documentador y Control de Calidad (QA)</span>
-                        </div>
+                    <div class="team-card-aluva">
+                        <div class="team-avatar-placeholder">VM</div>
+                        <h5 class="team-name">Víctor Maureira Flores</h5>
+                        <span class="team-role">Desarrollador, Documentador y Control de Calidad (QA)</span>
                     </div>
                 </div>
 
-                <div class="text-center mt-3">
-                    <small class="text-muted text-uppercase" style="letter-spacing: 0.08em;">Proyecto desarrollado para las exigencias de la industria y faenas chilenas &bull; Los Andes, Valparaíso</small>
+                <div class="text-center mt-4">
+                    <small class="text-muted text-uppercase" style="letter-spacing: 0.06em;">Desarrollado para el sector faenero e industrial chileno &bull; Los Andes, Valparaíso</small>
                 </div>
             </div>
         </section>
 
         <!-- PREVIEW DE CATÁLOGO DESTACADO -->
-        <section class="py-5">
+        <section id="productos-destacados" class="py-5 bg-light">
             <div class="container">
                 <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
                     <div class="mb-2 mb-md-0">
@@ -481,9 +282,9 @@
                 <div class="row">
                     <!-- Producto 1 - Blusa Ripstop Jubae Mujer -->
                     <div class="col-md-3 col-sm-6 mb-4">
-                        <div class="product-card-aluva" data-id="p6" data-title="Blusa Ripstop Jubae Mujer" data-price="25990" data-image="assets/images/productos/BLUSA_JUBAE_HOMBRE.jpeg">
+                        <div class="product-card-aluva" data-id="p6" data-title="Blusa Ripstop Jubae Mujer" data-price="25990" data-image="assets/images/productos/Blusa Ripstop Jubae Mujer.png">
                             <div class="product-thumb">
-                                <img src="assets/images/productos/BLUSA_JUBAE_HOMBRE.jpeg" alt="Blusa Ripstop Jubae Mujer">
+                                <img src="assets/images/productos/Blusa Ripstop Jubae Mujer.png" alt="Blusa Ripstop Jubae Mujer" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&amp;fit=crop&amp;w=600&amp;q=80';">
                             </div>
                             <div class="product-content">
                                 <span class="product-ref">Ref: 06005</span>
@@ -501,9 +302,9 @@
 
                     <!-- Producto 2 - Pantalón Cargo Alerce Mujer -->
                     <div class="col-md-3 col-sm-6 mb-4">
-                        <div class="product-card-aluva" data-id="p7" data-title="Pantalón Cargo Alerce Mujer" data-price="19990" data-image="assets/images/productos/PANTALON_RIPSTON_1.jpeg">
+                        <div class="product-card-aluva" data-id="p7" data-title="Pantalón Cargo Alerce Mujer" data-price="19990" data-image="assets/images/productos/Pantalón Cargo Alerce Mujer.png">
                             <div class="product-thumb">
-                                <img src="assets/images/productos/PANTALON_RIPSTON_1.jpeg" alt="Pantalón Cargo Alerce Mujer">
+                                <img src="assets/images/productos/Pantalón Cargo Alerce Mujer.png" alt="Pantalón Cargo Alerce Mujer" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&amp;fit=crop&amp;w=600&amp;q=80';">
                             </div>
                             <div class="product-content">
                                 <span class="product-ref">Ref: 30048</span>
@@ -521,9 +322,9 @@
 
                     <!-- Producto 3 - Pantalón Cargo Rodillas Reforzadas -->
                     <div class="col-md-3 col-sm-6 mb-4">
-                        <div class="product-card-aluva" data-id="p8" data-title="Pantalón Cargo Rodillas Reforzadas Hombre" data-price="21990" data-image="assets/images/productos/PANTALON_RIPSTON_1.jpeg">
+                        <div class="product-card-aluva" data-id="p8" data-title="Pantalón Cargo Rodillas Reforzadas Hombre" data-price="21990" data-image="assets/images/productos/Pantalón cargo Rodillas Reforzadas Hombre.png">
                             <div class="product-thumb">
-                                <img src="assets/images/productos/PANTALON_RIPSTON_1.jpeg" alt="Pantalón Cargo Rodillas Reforzadas">
+                                <img src="assets/images/productos/Pantalón cargo Rodillas Reforzadas Hombre.png" alt="Pantalón Cargo Rodillas Reforzadas" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&amp;fit=crop&amp;w=600&amp;q=80';">
                             </div>
                             <div class="product-content">
                                 <span class="product-ref">Ref: 30058</span>
@@ -539,20 +340,20 @@
                         </div>
                     </div>
 
-                    <!-- Producto 4 - Chaqueta Softshell Térmica -->
+                    <!-- Producto 4 - Gorro Reflex Unisex -->
                     <div class="col-md-3 col-sm-6 mb-4">
-                        <div class="product-card-aluva" data-id="p1" data-title="Chaqueta Softshell Térmica" data-price="32990" data-image="assets/images/productos/CHAQUETA_SOFSHEL_1.jpeg">
+                        <div class="product-card-aluva" data-id="p10" data-title="Gorro Reflex Unisex" data-price="7990" data-image="assets/images/productos/GORRO NEGRO.jpeg">
                             <div class="product-thumb">
-                                <img src="assets/images/productos/CHAQUETA_SOFSHEL_1.jpeg" alt="Chaqueta Softshell Térmica">
+                                <img src="assets/images/productos/GORRO NEGRO.jpeg" alt="Gorro Reflex Unisex" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&amp;fit=crop&amp;w=600&amp;q=80';">
                             </div>
                             <div class="product-content">
-                                <span class="product-ref">Ref: 01002</span>
-                                <span class="product-category">Abrigo &amp; Térmico</span>
-                                <h3 class="product-title">Chaqueta Softshell Faena</h3>
-                                <p class="product-desc">Membrana cortaviento respirable con micropolar interior para climas fríos.</p>
-                                <span class="product-fabric-badge">Talla S al XXL</span>
+                                <span class="product-ref">Ref: 04209</span>
+                                <span class="product-category">Accesorios &amp; EPP</span>
+                                <h3 class="product-title">Gorro Reflex Unisex</h3>
+                                <p class="product-desc">Gorro tejido reflectante de alta visibilidad nocturna.</p>
+                                <span class="product-fabric-badge">Reflectante Nocturno</span>
                                 <div class="product-footer">
-                                    <span class="price">$32.990</span>
+                                    <span class="price">$7.990</span>
                                     <button class="btn-add-cart-aluva">Añadir</button>
                                 </div>
                             </div>
@@ -563,23 +364,29 @@
         </section>
 
         <!-- SECCIÓN TESTIMONIOS CON CLIENTES REALES -->
-        <section id="testimonios" class="py-5 bg-light">
+        <section id="testimonios" class="py-5">
             <div class="container">
                 <div class="text-center mb-5">
                     <h2 class="font-weight-bold text-uppercase mb-2">Testimonios de Clientes Reales</h2>
-                    <div class="aluva-divider"></div>
-                    <p class="text-muted mt-2">Experiencias reales de cuadrillas y supervisores usando indumentaria técnica ALUVA</p>
+                    <div class="bg-warning mx-auto" style="height: 3px; width: 60px;"></div>
+                    <p class="text-muted mt-2">Experiencias reales de cuadrillas y supervisores usando indumentaria ALUVA</p>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6 mb-4">
                         <div class="testimonial-card-aluva">
+                            <div class="testimonial-img-wrapper">
+                                <img src="assets/images/a9a8a166-000b-46c7-9aef-7f3c1c3b0da5.jpeg" alt="Cliente usando pantalón industrial ALUVA">
+                            </div>
                             <p>"Equipar a nuestra cuadrilla con ALUVA ha sido un gran acierto. La calidad de las parkas y chaquetas resiste perfecto las condiciones de la faena, y la personalización del logo de la empresa quedó impecable."</p>
-                            <footer>— Ignacio S. (Encargado de Operaciones y Prevención, Sector Industrial / Faenero)</footer>
+                            <footer>— Ignacio S. (Encargado de Operaciones y Prevención)</footer>
                         </div>
                     </div>
                     <div class="col-md-6 mb-4">
                         <div class="testimonial-card-aluva">
+                            <div class="testimonial-img-wrapper">
+                                <img src="assets/images/fd35ad6f-01d9-41a0-8d4c-d09bdc1f770f.jpeg" alt="Cliente usando camisa Jubae ALUVA">
+                            </div>
                             <p>"Mandé a personalizar unas prendas para mi trabajo de terreno y la atención fue increíble. Excelente confección, la ropa es muy cómoda y los detalles se notan de inmediato. 100% recomendados."</p>
                             <footer>— Cristian M. (Supervisor de Operaciones en Faena)</footer>
                         </div>
@@ -589,17 +396,17 @@
         </section>
 
         <!-- SECCIÓN CONTACTO CORPORATIVO -->
-        <section id="contacto" class="py-5">
+        <section id="contacto" class="py-5 bg-light">
             <div class="container">
                 <div class="text-center mb-5">
                     <h2 class="font-weight-bold text-uppercase mb-2">Contacto Corporativo</h2>
-                    <div class="aluva-divider"></div>
-                    <p class="text-muted mt-2">Cotizaciones especiales por volumen, despacho a faenas y bordado personalizado de logotipos</p>
+                    <div class="bg-warning mx-auto" style="height: 3px; width: 60px;"></div>
+                    <p class="text-muted mt-2">Cotizaciones especiales por volumen y bordado personalizado de logotipos</p>
                 </div>
 
                 <div class="row">
                     <div class="col-md-7 mb-4">
-                        <form id="aluva-contact-form" class="bg-white p-4 border shadow-sm">
+                        <form id="aluva-contact-form" class="bg-white p-4 rounded border shadow-sm">
                             <div class="form-group mb-3">
                                 <label for="contact-name" class="font-weight-bold text-uppercase small">Nombre Completo</label>
                                 <input type="text" id="contact-name" class="form-control" required placeholder="Ej: Juan Pérez">
@@ -613,38 +420,34 @@
                                 <input type="tel" id="contact-phone" class="form-control" placeholder="Ej: +56 9 1234 5678">
                             </div>
                             <div class="form-group mb-3">
-                                <label for="contact-message" class="font-weight-bold text-uppercase small">Mensaje o Detalle de Cotización</label>
-                                <textarea id="contact-message" class="form-control" rows="4" placeholder="Indica cantidad de prendas requeridas, tallas, tipo de faena y si necesitas bordado de logotipo..."></textarea>
+                                <label for="contact-message" class="font-weight-bold text-uppercase small">Mensaje o Consulta Especial</label>
+                                <textarea id="contact-message" class="form-control" rows="4" placeholder="Indica detalles de cotización, cantidad de prendas y requerimientos de logo..."></textarea>
                             </div>
-                            <button type="submit" class="btn btn-warning btn-block font-weight-bold text-uppercase">Enviar Mensaje</button>
+                            <button type="submit" class="btn btn-warning btn-block text-dark font-weight-bold text-uppercase">Enviar Mensaje</button>
                         </form>
                     </div>
 
                     <div class="col-md-5 mb-4">
-                        <div class="bg-white p-4 border shadow-sm h-100 contact-info-block">
+                        <div class="bg-white p-4 rounded border shadow-sm h-100">
                             <h4 class="font-weight-bold text-uppercase mb-4 border-bottom pb-2">Información Directa</h4>
                             
                             <div class="mb-4">
-                                <h6 class="font-weight-bold text-uppercase mb-1"><i class="fa fa-envelope mr-2"></i> Correo Electrónico</h6>
+                                <h6 class="font-weight-bold text-uppercase text-warning mb-1"><i class="fa fa-envelope mr-2"></i> Correo Electrónico</h6>
                                 <p class="text-secondary"><a href="mailto:aluva.seguridad@gmail.com">aluva.seguridad@gmail.com</a></p>
                             </div>
 
                             <div class="mb-4">
-                                <h6 class="font-weight-bold text-uppercase mb-1"><i class="fa fa-map-marker mr-2"></i> Ubicación / Taller</h6>
+                                <h6 class="font-weight-bold text-uppercase text-warning mb-1"><i class="fa fa-map-marker mr-2"></i> Ubicación / Taller</h6>
                                 <p class="text-secondary mb-0">Tornamesa 42, Los Andes, Valparaíso, Chile</p>
                             </div>
 
                             <div>
-                                <h6 class="font-weight-bold text-uppercase mb-1"><i class="fa fa-share-alt mr-2"></i> Canales Digitales</h6>
+                                <h6 class="font-weight-bold text-uppercase text-warning mb-1"><i class="fa fa-share-alt mr-2"></i> Redes Sociales</h6>
                                 <ul class="list-unstyled text-secondary">
-                                    <li class="mb-2">
-                                        <a href="https://www.instagram.com/aluva.outdoor" target="_blank" rel="noopener">
-                                            <i class="fa fa-instagram mr-2"></i> Instagram: @aluva.outdoor
-                                        </a>
-                                    </li>
+                                    <li class="mb-2"><a href="https://www.instagram.com/aluva.outdoor" target="_blank" rel="noopener"><i class="fa fa-instagram text-danger mr-2"></i> Instagram: @aluva.outdoor</a></li>
                                     <li>
                                         <a href="https://www.tiktok.com/@aluva.outdoor" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 6px;">
-                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle;">
                                                 <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 1 1-2.896-2.896c.244 0 .48.03.707.087V9.387a6.326 6.326 0 0 0-.707-.04A6.34 6.34 0 1 0 15.818 15.68V8.92a8.212 8.212 0 0 0 4.771 1.516V7.001a4.832 4.832 0 0 1-1.000-.315z"/>
                                             </svg>
                                             TikTok: @aluva.outdoor
@@ -662,20 +465,21 @@
     <!-- FOOTER CORPORATIVO -->
     <footer class="footer-aluva">
         <div class="container text-center">
-            <img src="assets/images/ALUVA_TIMBRE.jpeg" alt="Timbre Oficial ALUVA" class="footer-timbre-img mb-3" style="max-height: 80px; width: auto;">
+            <img src="assets/images/banners/ALUVA_WBLOGOFLAT.bmp" alt="Timbre Oficial ALUVA" class="footer-timbre-img mb-3" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&amp;fit=crop&amp;w=600&amp;q=80';">
             <ul class="list-inline mb-3">
-                <li class="list-inline-item mr-4"><a href="#nosotros">Quiénes Somos</a></li>
-                <li class="list-inline-item mr-4"><a href="#equipo">Equipo</a></li>
-                <li class="list-inline-item mr-4"><a href="catalogo.html">Catálogo</a></li>
-                <li class="list-inline-item mr-4"><a href="seguimiento.html">Seguimiento</a></li>
-                <li class="list-inline-item mr-4"><a href="https://www.instagram.com/aluva.outdoor" target="_blank" rel="noopener">Instagram</a></li>
+                <li class="list-inline-item mr-3"><a href="#hero-banner">Inicio</a></li>
+                <li class="list-inline-item mr-3"><a href="#nosotros">Quiénes Somos</a></li>
+                <li class="list-inline-item mr-3"><a href="#equipo">Equipo</a></li>
+                <li class="list-inline-item mr-3"><a href="catalogo.html">Catálogo</a></li>
+                <li class="list-inline-item mr-3"><a href="seguimiento.html">Seguimiento</a></li>
+                <li class="list-inline-item mr-3"><a href="https://www.instagram.com/aluva.outdoor" target="_blank" rel="noopener">Instagram</a></li>
                 <li class="list-inline-item"><a href="https://www.tiktok.com/@aluva.outdoor" target="_blank" rel="noopener">TikTok</a></li>
             </ul>
-            <p class="small mb-0">&copy; 2026 ALUVA - Indumentaria Técnica Premium y EPP. Todos los derechos reservados.</p>
+            <p class="small mb-0">&copy; 2026 ALUVA - Ropa y Elementos de Protección Personal. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- TEMPLATE & PLUGINS JS (PRESERVADOS INTACTOS) -->
+    <!-- TEMPLATE & PLUGINS JS -->
     <script src="js/plugins/plugins.js"></script>
     <script src="js/assan.custom.js"></script>
 

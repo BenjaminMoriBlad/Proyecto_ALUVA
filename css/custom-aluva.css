@@ -1,31 +1,41 @@
 /* ==========================================================================
-   ALUVA - IDENTIDAD VISUAL MONOCROMÁTICA OFICIAL (OVERRIDE TOTAL)
-   Paleta de Colores Exclusiva:
-   - Primario Fondo: Blanco Nieve (#FAFAFA)
-   - Primario Textos / Oscuros: Negro Grafito Oscuro (#1A1A1A)
-   - Secundario Textos / Bordes: Gris Cemento Fuerte (#4A5568)
-   - Contraste / Acentos: Blanco Puro (#FFFFFF) sobre zonas oscuras
-   - Divisores: Gris Claro (#E2E8F0)
+   ALUVA - PERSONALIZACIÓN SOBRE TEMPLATE CLASSIC SHOP (ASSAN / BOOTSTRAP 4)
+   Arquitectura Mobile-First, CSS Flexbox & Grid, Efecto Parallax y Box Model Estricto
    ========================================================================== */
 
+/* --------------------------------------------------------------------------
+   1. VARIABLES DE MARCA Y RESET (BOX MODEL ESTRICTO)
+   -------------------------------------------------------------------------- */
 :root {
-  --color-bg-base: #FAFAFA;       /* Snow White */
-  --color-bg-dark: #1A1A1A;       /* Dark Graphite Black */
-  --color-text-primary: #1A1A1A;  /* Dark Graphite Black */
-  --color-text-secondary: #4A5568;/* Strong Cement Grey */
-  --color-border: #4A5568;        /* Strong Cement Grey */
-  --color-white: #FFFFFF;         /* Pure White */
-  --color-light-gray: #E2E8F0;    /* Light Grey for dividers */
+  --aluva-primary: #1e293b;
+  --aluva-accent: #d97706; /* Naranjo Industrial de Seguridad / Faena */
+  --aluva-accent-hover: #b45309;
+  --aluva-dark: #0f172a;
+  --aluva-light: #f8fafc;
+  --aluva-border: #e2e8f0;
+  --aluva-text: #334155;
+  --aluva-text-muted: #64748b;
+  --aluva-white: #ffffff;
   
-  --font-family: 'Helvetica Neue', Arial, sans-serif;
-  --transition-default: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --font-base: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --transition-speed: 0.25s ease;
 }
 
-/* Reset y Base Global */
+/* Box Model Estricto */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ajustes globales Mobile-First */
 body {
-  font-family: var(--font-family);
-  background-color: var(--color-bg-base) !important;
-  color: var(--color-text-primary) !important;
+  font-family: var(--font-base);
+  color: var(--aluva-text);
+  background-color: #fafafa;
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -33,20 +43,21 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: var(--color-text-primary) !important;
-  font-family: var(--font-family);
-  font-weight: 700;
-  letter-spacing: 0.03em;
+  font-family: var(--font-heading);
+  color: var(--aluva-dark);
+  letter-spacing: -0.01em;
 }
 
-p {
-  color: var(--color-text-secondary);
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-  transition: var(--transition-default);
+  transition: color var(--transition-speed);
 }
 
 a:hover {
@@ -54,38 +65,54 @@ a:hover {
 }
 
 /* --------------------------------------------------------------------------
-   TOP BAR CORPORATIVA
+   2. HEADER & TOP BAR CORPORATIVA (FLEXBOX RESPONSIVO)
    -------------------------------------------------------------------------- */
-.top-bar, .top-bar.light {
-  background-color: var(--color-bg-dark) !important;
-  color: var(--color-white) !important;
-  border-bottom: 1px solid var(--color-border) !important;
-  padding: 9px 0 !important;
-  font-size: 0.85rem !important;
+.navbar-brand .official-brand-logo {
+  max-height: 48px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 4px;
 }
 
-.top-bar a, .top-bar span, .top-bar li {
-  color: var(--color-white) !important;
+.top-bar.light {
+  background-color: var(--aluva-dark) !important;
+  color: #94a3b8;
+  border-bottom: 1px solid var(--aluva-primary);
+  padding: 8px 0;
+  font-size: 0.82rem;
+  line-height: 1.4;
 }
 
-.top-bar a:hover {
-  color: var(--color-light-gray) !important;
-}
-
-.top-bar .text-warning, .top-bar i.fa {
-  color: var(--color-white) !important;
-}
-
-.top-contact-links {
+.top-bar .top-contact-links {
   display: flex !important;
   align-items: center !important;
   flex-wrap: wrap !important;
-  gap: 20px !important;
+  gap: 14px !important;
   margin: 0 !important;
   padding: 0 !important;
   list-style: none !important;
 }
 
+.top-bar .top-link-email {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  color: #cbd5e1 !important;
+  text-decoration: none !important;
+}
+
+.top-bar .top-link-email:hover {
+  color: #f59e0b !important;
+}
+
+.top-bar .top-location-item {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  color: #94a3b8 !important;
+}
+
+/* Redes Sociales en Top Bar */
 .top-social-list {
   display: flex !important;
   align-items: center !important;
@@ -102,629 +129,756 @@ a:hover {
   width: 32px !important;
   height: 32px !important;
   border-radius: 50% !important;
-  background-color: transparent !important;
-  color: var(--color-white) !important;
-  border: 1px solid var(--color-border) !important;
-  transition: var(--transition-default) !important;
+  background-color: var(--aluva-primary) !important;
+  color: #cbd5e1 !important;
+  transition: all var(--transition-speed) !important;
+  border: 1px solid #334155 !important;
 }
 
-.top-social-circle:hover {
-  background-color: var(--color-white) !important;
-  color: var(--color-bg-dark) !important;
-  border-color: var(--color-white) !important;
+.top-social-circle svg {
+  width: 14px !important;
+  height: 14px !important;
+  fill: currentColor !important;
+}
+
+.top-social-circle.social-instagram:hover {
+  background-color: #e1306c !important;
+  color: #ffffff !important;
+  border-color: #e1306c !important;
   transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(225, 48, 108, 0.35);
+}
+
+.top-social-circle.social-tiktok:hover {
+  background-color: #000000 !important;
+  color: #00f2fe !important;
+  border-color: #000000 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 242, 254, 0.35);
 }
 
 /* --------------------------------------------------------------------------
-   NAVBAR PRINCIPAL
+   3. NAVEGACIÓN PRINCIPAL
    -------------------------------------------------------------------------- */
-.navbar, .navbar-light, .bg-faded {
-  background-color: var(--color-bg-base) !important;
-  border-bottom: 1px solid var(--color-light-gray) !important;
-  padding: 1rem 0 !important;
-  transition: var(--transition-default);
-}
-
-.navbar-brand .official-brand-logo {
-  max-height: 52px;
-  width: auto;
-  object-fit: contain;
+.navbar-light {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid var(--aluva-border);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
 }
 
 .navbar-light .navbar-nav .nav-link {
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  font-size: 0.85rem !important;
-  letter-spacing: 0.08em !important;
-  color: var(--color-text-primary) !important;
-  padding: 0.75rem 1.1rem !important;
-  position: relative;
-  transition: var(--transition-default);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.84rem;
+  letter-spacing: 0.5px;
+  color: var(--aluva-text);
+  padding: 0.8rem 1rem;
 }
 
-.navbar-light .navbar-nav .nav-link:hover,
-.navbar-light .navbar-nav .nav-item.active .nav-link {
-  color: var(--color-text-secondary) !important;
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link:hover {
+  color: var(--aluva-accent);
 }
 
+/* Carrito Trigger */
 .cart-trigger-btn {
   position: relative;
-  background: transparent !important;
-  border: none !important;
+  background: transparent;
+  border: none;
   cursor: pointer;
   font-size: 1.25rem;
-  color: var(--color-text-primary) !important;
+  color: var(--aluva-dark);
   padding: 8px 12px;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  transition: var(--transition-default);
+  transition: color var(--transition-speed), transform var(--transition-speed);
 }
 
 .cart-trigger-btn:hover {
-  transform: scale(1.05);
+  color: var(--aluva-accent);
+  transform: scale(1.06);
 }
 
 .cart-badge-count {
-  background-color: var(--color-bg-dark) !important;
-  color: var(--color-white) !important;
-  font-size: 0.75rem;
+  background-color: var(--aluva-accent);
+  color: #ffffff;
+  font-size: 0.72rem;
   font-weight: 700;
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--color-white);
+  padding: 2px 6px;
+  line-height: 1;
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
 }
 
 /* --------------------------------------------------------------------------
-   HERO BANNER (PARALLAX EFFECT)
+   4. HERO BANNER - PARALLAX EFFECT (REQUERIMIENTO OBLIGATORIO)
    -------------------------------------------------------------------------- */
-.hero-parallax-aluva {
+#hero-banner.hero-parallax-banner,
+.hero-parallax-banner {
   position: relative;
-  min-height: 540px;
+  min-height: 480px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: var(--color-white) !important;
-  background-image: linear-gradient(rgba(26, 26, 26, 0.78), rgba(26, 26, 26, 0.78)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=80');
+  color: #ffffff !important;
+  background-image: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('../assets/images/banners/ALUVA_Paralax.jpg');
   background-attachment: fixed !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
   overflow: hidden;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 3px solid var(--aluva-accent);
 }
 
-.hero-parallax-aluva h1 {
-  color: var(--color-white) !important;
-  font-size: 3rem;
+.hero-parallax-banner h1 {
+  font-size: 2.2rem;
   font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin-bottom: 1.25rem;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  color: #ffffff !important;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.4);
 }
 
-.hero-parallax-aluva p.lead {
-  color: var(--color-light-gray) !important;
-  font-size: 1.2rem;
+.hero-parallax-banner p.lead {
+  font-size: 1.05rem;
+  color: #e2e8f0 !important;
   max-width: 680px;
-  margin: 0 auto 2rem;
-  font-weight: 300;
-  line-height: 1.6;
+  margin: 0 auto;
 }
 
-.hero-badge-aluva {
-  background-color: transparent !important;
-  color: var(--color-white) !important;
-  border: 1px solid rgba(255, 255, 255, 0.6) !important;
-  padding: 6px 16px !important;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  border-radius: 0 !important;
-  display: inline-block;
+/* Fallback Parallax para dispositivos con scroll inercial móvil */
+@media (max-width: 767px) {
+  #hero-banner.hero-parallax-banner,
+  .hero-parallax-banner {
+    min-height: 420px;
+    background-attachment: scroll !important; /* Mejora rendimiento en GPU móvil */
+  }
+  .hero-parallax-banner h1 {
+    font-size: 1.75rem;
+  }
 }
 
-/* --------------------------------------------------------------------------
-   BOTONES Y CTA (ESTRICTO ORTOGONAL)
-   -------------------------------------------------------------------------- */
-.btn-aluva-solid {
-  background-color: var(--color-white) !important;
-  color: var(--color-bg-dark) !important;
-  border: 1px solid var(--color-white) !important;
-  border-radius: 0 !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.08em !important;
-  padding: 0.85rem 2rem !important;
-  transition: var(--transition-default) !important;
-}
-
-.btn-aluva-solid:hover {
-  background-color: transparent !important;
-  color: var(--color-white) !important;
-  border-color: var(--color-white) !important;
-}
-
-.btn-aluva-outline {
-  background-color: transparent !important;
-  color: var(--color-white) !important;
-  border: 1px solid rgba(255, 255, 255, 0.8) !important;
-  border-radius: 0 !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.08em !important;
-  padding: 0.85rem 2rem !important;
-  transition: var(--transition-default) !important;
-}
-
-.btn-aluva-outline:hover {
-  background-color: var(--color-white) !important;
-  color: var(--color-bg-dark) !important;
-  border-color: var(--color-white) !important;
-}
-
-.btn-aluva-dark {
-  background-color: var(--color-bg-dark) !important;
-  color: var(--color-white) !important;
-  border: 1px solid var(--color-bg-dark) !important;
-  border-radius: 0 !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.08em !important;
-  padding: 0.85rem 1.8rem !important;
-  transition: var(--transition-default) !important;
-}
-
-.btn-aluva-dark:hover {
-  background-color: transparent !important;
-  color: var(--color-text-primary) !important;
-  border-color: var(--color-bg-dark) !important;
-}
-
-/* Anular clases amarillas/naranjas de la plantilla Assan */
-.btn-warning {
-  background-color: var(--color-bg-dark) !important;
-  color: var(--color-white) !important;
-  border: 1px solid var(--color-bg-dark) !important;
-  border-radius: 0 !important;
-}
-
-.btn-warning:hover {
-  background-color: transparent !important;
-  color: var(--color-text-primary) !important;
-  border-color: var(--color-bg-dark) !important;
-}
-
-.text-warning, .bg-warning {
-  color: var(--color-bg-dark) !important;
-}
-
-.bg-warning {
-  background-color: var(--color-bg-dark) !important;
-}
-
-/* Divisores de Sección */
-.aluva-title-divider {
-  height: 2px !important;
-  width: 60px !important;
-  background-color: var(--color-bg-dark) !important;
-  margin: 1rem auto 1.5rem !important;
+@media (min-width: 768px) {
+  #hero-banner.hero-parallax-banner,
+  .hero-parallax-banner {
+    min-height: 520px;
+  }
+  .hero-parallax-banner h1 {
+    font-size: 2.8rem;
+  }
 }
 
 /* --------------------------------------------------------------------------
-   SECCIONES Y FONDOS
+   5. PILARES / PROPUESTA DE VALOR (CSS GRID & FLEXBOX)
    -------------------------------------------------------------------------- */
-section.bg-light, .bg-light {
-  background-color: var(--color-bg-base) !important;
+#pilares-section {
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--aluva-border);
 }
 
-section {
-  border-bottom: 1px solid var(--color-light-gray);
+.pillars-grid-modern {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
 }
 
-/* --------------------------------------------------------------------------
-   PILARES / PROPUESTA DE VALOR
-   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+  .pillars-grid-modern {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .pilar-card-aluva {
-  background-color: var(--color-white) !important;
-  border: 1px solid var(--color-light-gray) !important;
-  border-radius: 0 !important;
-  padding: 1.75rem !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
-  transition: var(--transition-default);
+  background-color: var(--aluva-light);
+  border: 1px solid var(--aluva-border);
+  border-radius: 6px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 .pilar-card-aluva:hover {
-  border-color: var(--color-border) !important;
   transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
 }
 
 .pilar-card-aluva i {
-  color: var(--color-bg-dark) !important;
+  color: var(--aluva-accent);
+  font-size: 2.5rem;
+  flex-shrink: 0;
 }
 
 /* --------------------------------------------------------------------------
-   QUIÉNES SOMOS, MISIÓN Y VISIÓN
+   6. QUIÉNES SOMOS, MISIÓN Y VISIÓN
    -------------------------------------------------------------------------- */
 .info-card-aluva {
-  background-color: var(--color-white) !important;
-  border: 1px solid var(--color-light-gray) !important;
-  border-left: 4px solid var(--color-bg-dark) !important;
-  border-radius: 0 !important;
-  padding: 2rem !important;
+  background-color: #ffffff;
+  border: 1px solid var(--aluva-border);
+  border-left: 4px solid var(--aluva-accent);
+  padding: 1.75rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
   height: 100%;
 }
 
+.info-card-aluva h4 {
+  font-weight: 700;
+  color: var(--aluva-dark);
+}
+
 .info-card-aluva i {
-  color: var(--color-bg-dark) !important;
+  color: var(--aluva-accent);
 }
 
 /* --------------------------------------------------------------------------
-   EQUIPO DE DESARROLLO Y GESTIÓN
+   7. SECCIÓN EQUIPO DE DESARROLLO Y GESTIÓN (REGLA DE EVALUACIÓN)
    -------------------------------------------------------------------------- */
+#equipo-section {
+  background-color: var(--aluva-light);
+  border-top: 1px solid var(--aluva-border);
+  border-bottom: 1px solid var(--aluva-border);
+}
+
+.team-grid-modern {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 576px) {
+  .team-grid-modern {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .team-grid-modern {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 .team-card-aluva {
-  background-color: var(--color-white) !important;
-  border: 1px solid var(--color-light-gray) !important;
-  border-top: 3px solid var(--color-bg-dark) !important;
-  border-radius: 0 !important;
-  padding: 2rem 1.5rem !important;
+  background-color: #ffffff;
+  border: 1px solid var(--aluva-border);
+  border-top: 3px solid var(--aluva-primary);
+  border-radius: 6px;
+  padding: 2rem 1.25rem;
   text-align: center;
-  transition: var(--transition-default);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  transition: transform var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   height: 100%;
 }
 
 .team-card-aluva:hover {
-  border-color: var(--color-border) !important;
-  border-top-color: var(--color-bg-dark) !important;
   transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  border-top-color: var(--aluva-accent);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
 
 .team-avatar-placeholder {
-  width: 68px;
-  height: 68px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
-  background-color: var(--color-bg-dark);
-  color: var(--color-white);
+  background: linear-gradient(135deg, var(--aluva-primary), var(--aluva-dark));
+  color: #ffffff;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 700;
-  margin-bottom: 1.25rem;
-  border: 2px solid var(--color-light-gray);
+  margin-bottom: 1rem;
+  border: 2px solid var(--aluva-border);
 }
 
 .team-card-aluva .team-name {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  color: var(--color-text-primary) !important;
-  margin-bottom: 0.4rem;
+  color: var(--aluva-dark);
+  margin-bottom: 0.35rem;
 }
 
 .team-card-aluva .team-role {
-  font-size: 0.82rem;
-  color: var(--color-text-secondary) !important;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  font-size: 0.8rem;
   font-weight: 600;
+  color: var(--aluva-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 /* --------------------------------------------------------------------------
-   CATÁLOGO DESTACADO
+   8. CATÁLOGO Y PRODUCTOS (GRID MULTICRITERIO RESPONSIVO)
    -------------------------------------------------------------------------- */
+.catalog-filter-btn {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.5px;
+  padding: 8px 16px;
+  border-radius: 30px;
+  margin: 4px;
+  transition: all var(--transition-speed);
+}
+
+.catalog-grid-modern {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 576px) {
+  .catalog-grid-modern {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .catalog-grid-modern {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 .product-card-aluva {
-  background-color: var(--color-white) !important;
-  border: 1px solid var(--color-light-gray) !important;
-  border-radius: 0 !important;
+  border: 1px solid var(--aluva-border);
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #ffffff;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  height: 100%;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  transition: var(--transition-default);
 }
 
 .product-card-aluva:hover {
-  border-color: var(--color-border) !important;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
-.product-thumb {
+.product-card-aluva .product-thumb {
   position: relative;
+  width: 100%;
+  padding-top: 90%;
   overflow: hidden;
-  background-color: var(--color-white);
-  padding: 1.5rem;
-  text-align: center;
-  border-bottom: 1px solid var(--color-light-gray);
+  background-color: #f1f5f9;
 }
 
-.product-thumb img {
-  max-height: 200px;
-  width: auto;
-  margin: 0 auto;
-  object-fit: contain;
-  transition: var(--transition-default);
+.product-card-aluva .product-thumb img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
 .product-card-aluva:hover .product-thumb img {
   transform: scale(1.05);
 }
 
-.product-content {
-  padding: 1.5rem;
+.product-card-aluva .product-content {
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
-.product-ref {
-  font-size: 0.75rem;
-  color: var(--color-text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.product-category {
-  font-size: 0.8rem;
+.product-card-aluva .product-ref {
+  font-size: 0.72rem;
   font-weight: 600;
-  color: var(--color-text-secondary);
+  color: #94a3b8;
   text-transform: uppercase;
-  margin-bottom: 0.5rem;
 }
 
-.product-title {
-  font-size: 1.05rem;
+.product-card-aluva .product-category {
+  font-size: 0.75rem;
   font-weight: 700;
-  color: var(--color-text-primary) !important;
+  text-transform: uppercase;
+  color: var(--aluva-accent);
+  margin-bottom: 4px;
+}
+
+.product-card-aluva .product-title {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--aluva-dark);
   margin-bottom: 0.5rem;
 }
 
-.product-desc {
-  font-size: 0.88rem;
-  color: var(--color-text-secondary);
+.product-card-aluva .product-desc {
+  font-size: 0.86rem;
+  color: var(--aluva-text-muted);
   margin-bottom: 1rem;
   flex-grow: 1;
 }
 
-.product-fabric-badge {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--color-text-secondary);
-  background-color: var(--color-bg-base);
-  padding: 0.35rem 0.6rem;
-  border: 1px solid var(--color-light-gray);
+.product-card-aluva .product-fabric-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  background-color: #f1f5f9;
+  color: var(--aluva-text);
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #cbd5e1;
+  margin-bottom: 1rem;
   align-self: flex-start;
-  margin-bottom: 1.25rem;
 }
 
-.product-footer {
+.product-card-aluva .product-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-top: 1px solid #f1f5f9;
   padding-top: 1rem;
-  border-top: 1px solid var(--color-light-gray);
 }
 
-.product-footer .price {
-  font-size: 1.25rem;
+.product-card-aluva .price {
+  font-size: 1.2rem;
   font-weight: 800;
-  color: var(--color-text-primary) !important;
+  color: var(--aluva-dark);
 }
 
 .btn-add-cart-aluva {
-  background-color: var(--color-bg-dark) !important;
-  color: var(--color-white) !important;
-  border: 1px solid var(--color-bg-dark) !important;
-  border-radius: 0 !important;
-  padding: 0.5rem 1.25rem;
+  background-color: var(--aluva-dark);
+  color: #ffffff;
   font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  padding: 8px 14px;
+  border-radius: 4px;
+  border: none;
   cursor: pointer;
-  transition: var(--transition-default);
+  transition: background-color var(--transition-speed);
 }
 
 .btn-add-cart-aluva:hover {
-  background-color: transparent !important;
-  color: var(--color-text-primary) !important;
+  background-color: var(--aluva-accent);
 }
 
 /* --------------------------------------------------------------------------
-   TESTIMONIOS
+   9. TESTIMONIOS (CLIENTES REALES)
    -------------------------------------------------------------------------- */
 .testimonial-card-aluva {
-  background-color: var(--color-white) !important;
-  border: 1px solid var(--color-light-gray) !important;
-  border-left: 3px solid var(--color-bg-dark) !important;
-  border-radius: 0 !important;
-  padding: 2.25rem !important;
+  background-color: #ffffff;
+  border: 1px solid var(--aluva-border);
+  padding: 1.75rem;
+  border-radius: 6px;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.testimonial-img-wrapper {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.testimonial-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .testimonial-card-aluva p {
-  font-size: 1.05rem;
   font-style: italic;
-  line-height: 1.7;
-  color: var(--color-text-primary) !important;
-  margin-bottom: 1.25rem;
+  color: var(--aluva-text);
+  font-size: 0.94rem;
+  line-height: 1.6;
+  flex-grow: 1;
 }
 
 .testimonial-card-aluva footer {
-  font-size: 0.85rem;
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  color: var(--aluva-dark);
+  margin-top: 1rem;
+  border-top: 1px solid var(--aluva-border);
+  padding-top: 0.75rem;
+}
+
+/* --------------------------------------------------------------------------
+   10. MÓDULO DE SEGUIMIENTO (LOGÍSTICA DE ENVÍOS)
+   -------------------------------------------------------------------------- */
+.tracking-card-aluva {
+  max-width: 650px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border: 1px solid var(--aluva-border);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.tracking-form-group {
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+.tracking-form-group input {
+  flex-grow: 1;
+  padding: 12px 16px;
+  border: 2px solid #cbd5e1;
+  border-right: none;
+  border-radius: 6px 0 0 6px;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.tracking-form-group input:focus {
+  border-color: var(--aluva-accent);
+}
+
+.tracking-form-group button {
+  background-color: var(--aluva-dark);
+  color: #ffffff;
+  padding: 12px 24px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--color-text-secondary) !important;
+  border: 2px solid var(--aluva-dark);
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
 }
 
-/* --------------------------------------------------------------------------
-   FORMULARIO Y CONTACTO
-   -------------------------------------------------------------------------- */
-.contact-box-aluva {
-  background-color: var(--color-white) !important;
-  border: 1px solid var(--color-light-gray) !important;
-  border-radius: 0 !important;
-  padding: 2.5rem !important;
+.tracking-form-group button:hover {
+  background-color: var(--aluva-accent);
+  border-color: var(--aluva-accent);
 }
 
-.form-control {
-  background-color: var(--color-bg-base) !important;
-  border: 1px solid var(--color-border) !important;
-  border-radius: 0 !important;
-  color: var(--color-text-primary) !important;
-  font-size: 0.95rem;
-  padding: 0.85rem 1rem;
+.tracking-result-box {
+  background-color: var(--aluva-light);
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 1.5rem;
+  display: none;
 }
 
-.form-control:focus {
-  background-color: var(--color-white) !important;
-  border-color: var(--color-bg-dark) !important;
-  box-shadow: none !important;
-  color: var(--color-text-primary) !important;
+.tracking-result-box.active {
+  display: block;
 }
 
-.contact-info-block h6 {
-  color: var(--color-text-primary) !important;
+.tracking-steps-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  position: relative;
+}
+
+.tracking-steps-nav::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: 10%;
+  right: 10%;
+  height: 3px;
+  background-color: #cbd5e1;
+  z-index: 1;
+}
+
+.tracking-step-item {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.tracking-step-item .circle-node {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #cbd5e1;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: 700;
+  margin: 0 auto 8px auto;
 }
 
-.contact-info-block i {
-  color: var(--color-bg-dark) !important;
+.tracking-step-item.completed .circle-node {
+  background-color: #10b981;
+}
+
+.tracking-step-item.active .circle-node {
+  background-color: var(--aluva-accent);
+}
+
+.tracking-step-item .step-text {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #64748b;
 }
 
 /* --------------------------------------------------------------------------
-   FOOTER CORPORATIVO
+   11. DRAWER CARRITO OFF-CANVAS ("TU PEDIDO")
    -------------------------------------------------------------------------- */
-.footer-aluva {
-  background-color: var(--color-bg-dark) !important;
-  color: var(--color-white) !important;
-  border-top: 1px solid var(--color-border) !important;
-  padding: 4rem 0 3rem !important;
+aside.pushy {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  width: 380px !important;
+  max-width: 90vw !important;
+  height: 100vh !important;
+  background-color: var(--aluva-dark) !important;
+  color: #ffffff !important;
+  z-index: 99999 !important;
+  box-shadow: -6px 0 30px rgba(0, 0, 0, 0.45) !important;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s !important;
+  transform: translate3d(100%, 0, 0) !important;
+  visibility: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+body.pushy-open-right aside.pushy,
+aside.pushy.pushy-open {
+  transform: translate3d(0, 0, 0) !important;
+  visibility: visible !important;
+}
+
+.pushy .cart-header-title {
+  padding: 1.25rem 1.5rem;
+  background-color: var(--aluva-dark);
+  border-bottom: 1px solid var(--aluva-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.pushy .cart-header-title h3 {
+  color: #ffffff;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.pushy .cart-body {
+  padding: 1.5rem;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.cart-footer-box {
+  padding: 1.25rem 1.5rem;
+  background-color: var(--aluva-primary);
+  border-top: 1px solid #334155;
+  flex-shrink: 0;
+}
+
+.coupon-group {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 0.75rem;
+}
+
+.coupon-group input {
+  flex-grow: 1;
+  background-color: var(--aluva-dark);
+  border: 1px solid #475569;
+  color: #ffffff;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  border-radius: 4px;
+}
+
+.coupon-group button {
+  background-color: var(--aluva-accent);
+  color: #ffffff;
+  border: none;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-checkout-aluva {
+  width: 100%;
+  background-color: var(--aluva-accent);
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+}
+
+.btn-checkout-aluva:hover {
+  background-color: var(--aluva-accent-hover);
+}
+
+/* --------------------------------------------------------------------------
+   12. FOOTER CORPORATIVO
+   -------------------------------------------------------------------------- */
+footer.footer-aluva {
+  background-color: var(--aluva-dark);
+  color: #94a3b8;
+  padding: 3rem 0 1.5rem 0;
+  border-top: 4px solid var(--aluva-accent);
+}
+
+footer.footer-aluva a {
+  color: #cbd5e1;
+}
+
+footer.footer-aluva a:hover {
+  color: #f59e0b;
 }
 
 .footer-timbre-img {
   max-width: 90px;
   height: auto;
-  filter: brightness(0) invert(1);
-}
-
-.footer-aluva a {
-  color: var(--color-white) !important;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-
-.footer-aluva a:hover {
-  color: var(--color-light-gray) !important;
-  text-decoration: underline;
-}
-
-.footer-aluva p {
-  color: rgba(255, 255, 255, 0.5) !important;
-  letter-spacing: 0.03em;
+  border-radius: 50%;
+  border: 2px solid #334155;
 }
 
 /* --------------------------------------------------------------------------
-   BOTÓN FLOTANTE DE WHATSAPP
+   13. BOTÓN FLOTANTE WHATSAPP
    -------------------------------------------------------------------------- */
 .whatsapp-float-btn {
   position: fixed;
   bottom: 25px;
   right: 25px;
-  background-color: var(--color-bg-dark) !important;
-  color: var(--color-white) !important;
-  border: 1px solid var(--color-border) !important;
-  border-radius: 50px !important;
-  padding: 12px 22px;
+  background-color: #25d366;
+  color: #ffffff;
+  border-radius: 50px;
+  padding: 12px 20px;
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   display: flex;
   align-items: center;
   gap: 10px;
-  box-shadow: 0 8px 24px rgba(26, 26, 26, 0.35) !important;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
   z-index: 999;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: var(--transition-default);
+  transition: transform var(--transition-speed), background-color var(--transition-speed);
 }
 
 .whatsapp-float-btn:hover {
-  background-color: #25d366 !important;
-  color: #ffffff !important;
-  border-color: #25d366 !important;
-  transform: translateY(-3px) scale(1.02);
+  background-color: #128c7e;
+  color: #ffffff;
+  transform: translateY(-4px) scale(1.03);
 }
 
 .whatsapp-float-btn svg {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   fill: currentColor;
 }
-
-/* --------------------------------------------------------------------------
-   CARRITO OFFCANVAS (PUSHY)
-   -------------------------------------------------------------------------- */
-.pushy {
-  background-color: var(--color-white) !important;
-  border-left: 1px solid var(--color-light-gray) !important;
-}
-
-.cart-header-title {
-  background-color: var(--color-bg-dark) !important;
-  color: var(--color-white) !important;
-  padding: 1.5rem 2rem !important;
-  border-bottom: 1px solid var(--color-border) !important;
-}
-
-.cart-header-title h3 {
-  color: var(--color-white) !important;
-  margin: 0;
-  font-size: 1.2rem;
-  letter-spacing: 0.05em;
-}
-
-.cart-header-title i {
-  color: var(--color-white) !important;
-}
-
-.btn-checkout-aluva {
-  background-color: var(--color-bg-dark) !important;
-  color: var(--color-white) !important;
-  border: 1px solid var(--color-bg-dark) !important;
-  border-radius: 0 !important;
-  width: 100%;
-  padding: 1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  transition: var(--transition-default);
-}
-
-.btn-checkout-aluva:hover {
-  background-color: transparent !important;
-  color: var(--color-text-primary) !important;
-}
-
-.coupon-group input {
-  border-radius: 0 !important;
-  border: 1px solid var(--color-border) !important;
-  background-color: var(--color-bg-base) !important;
-}
-
-.coupon-group button {
-  border-radius: 0 !important;
-  background-color: var(--color-bg-dark) !important;
-  color: var(--color-white) !important;
-  border: 1px solid var(--color-bg-dark) !important;
-}
-
