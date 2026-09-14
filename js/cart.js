@@ -210,11 +210,11 @@ function initCartModule() {
           <p>${formatCLP(item.price)} x ${item.quantity} = <strong>${formatCLP(item.price * item.quantity)}</strong></p>
           <div class="btn-group btn-group-sm mt-1" role="group">
             <button type="button" class="btn btn-secondary btn-sm qty-dec">-</button>
-            <button type="button" class="btn btn-light btn-sm disabled" style="color:#fff;">${item.quantity}</button>
+            <button type="button" class="btn btn-light btn-sm disabled">${item.quantity}</button>
             <button type="button" class="btn btn-secondary btn-sm qty-inc">+</button>
+            <button class="btn btn-warning btn-remove" title="Eliminar"><i class="fa fa-trash"></i></button>
           </div>
         </div>
-        <button class="btn-remove" title="Eliminar"><i class="fa fa-trash"></i></button>
       </div>
     `).join('');
 
